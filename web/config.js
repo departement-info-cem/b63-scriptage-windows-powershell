@@ -1,7 +1,7 @@
 const config = {
-    nom: "Code - Nom du cours",
-    description: "Site de référence du cours de x",
-    nomUrl: "depinfo-gabarit"
+    nom: "420-B63-RO - Scriptage sous Windows avec PowerShell",
+    description: "Site de référence du cours 420-B63-RO",
+    nomUrl: "b63-scriptage-windows-powershell"
 }
 
 module.exports = config;

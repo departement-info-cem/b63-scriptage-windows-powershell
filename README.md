@@ -1,4 +1,4 @@
-# depinfo-modele
+# depinfo-modele Gabriel Gaudreault
 
 Modèle de base pour un cours du département d'informatique du CÉGEP Édouard-Montpetit. 
 

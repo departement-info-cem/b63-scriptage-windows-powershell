@@ -19,6 +19,6 @@ Vous pouvez me rejoindre facilement via Microsoft Teams ou Mio (Omnivox)
 . À moins d'exception, je réponds généralement dans un délais de 24 à 48h.
 :::
 
-<Column>
+</Column>
 
-<Row>
+</Row>

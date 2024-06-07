@@ -1,4 +1,3 @@
 ---
-title: Accueil
-description: Introduction à PowerShell
+title: Présentation des cours
 ---

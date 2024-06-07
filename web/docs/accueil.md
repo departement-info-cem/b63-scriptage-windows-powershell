@@ -23,9 +23,9 @@ Je suis Gabriel Gaudreault, votre enseignant, vous pouvez me rejoindre facilemen
 
 <Column>
 
-| Rencontre                                        | Contenu                                        | Exercices                              |
-| --------------------------------------           | ------------------------------------           | -------------------------------------- |
-| [Séance #1](cours/accueil)                       | Plan de cours, introduction à Powershell       | 
+| Rencontre                                        | Contenu                                           | Exercices                              |
+| --------------------------------------           | ------------------------------------              | -------------------------------------- |
+| [Séance #1](cours/rencontre1)                       | Plan de cours, introduction à Powershell       | Exercices 01A et 01B
 
 </Column>
 

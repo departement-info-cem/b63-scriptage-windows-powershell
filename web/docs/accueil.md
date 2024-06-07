@@ -16,7 +16,7 @@ Vous retrouverez les notes de cours dans la section **[Cours](cours/accueil)**. 
 :::info Pour me joindre
 
 Je suis Gabriel Gaudreault, votre enseignant, vous pouvez me rejoindre facilement via **Microsoft Teams** ou **Mio** (Omnivox)
-. À moins d'exception, je réponds généralement dans un délais de 24 à 48h.
+. À moins d'exception, je réponds généralement dans un délai de 24 à 48h.
 :::
 
 </Column>

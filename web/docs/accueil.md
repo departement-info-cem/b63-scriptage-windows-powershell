@@ -1,6 +1,6 @@
 ---
-sidebar_position: 1
 slug: /
+hide_table_of_contents: true
 ---
 
 # Accueil
@@ -25,7 +25,7 @@ Je suis Gabriel Gaudreault, votre enseignant, vous pouvez me rejoindre facilemen
 
 | Rencontre                                           | Contenu                                        | Exercices                              |
 | --------------------------------------              | ------------------------------------           | -------------------------------------- |
-| [Séance #1](cours/rencontre1)                       | Plan de cours, introduction à Powershell       | Exercices 01A et 01B                   |
+| [Séance #1](cours/rencontre1)                       | Plan de cours, introduction à Powershell       | Mini-Exercice #1, Exercices 01A et 01B |
 | [Séance #2](cours/rencontre2)                       | Objets et pipeline                             | Exercices 02A et 02B                   |
 
 </Column>

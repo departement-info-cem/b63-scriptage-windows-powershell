@@ -20,7 +20,8 @@ import TabItem from '@theme/TabItem';
 <TabItem value="exercices" label="💻 Exercices à compléter">
 
 Les exercices suivants se trouvent dans votre section personnelle du bloc-notes du cours, sous l'onglet *Exercices*:
-- Exercice 01a: Alias et commandes
+- Mini-Exercice #1
+- Exercice 01a: Alias PowerShell
 - Exercice 01b: Commandes PowerShell
 
 </TabItem>

@@ -469,4 +469,22 @@ Ou encore, on peut toujours insérer les variables directement dans la chaîne, 
 ![image](./assets/r02/r03_02i.png)
 
 
+### Opérateurs
+
+#### Opérateurs arithmétiques
+
+| Opérateur | Description |
+| -- | -- |
+| `+` | Addition |
+| `-` | Soustraction |
+| `*` | Multiplication |
+| `/` | Division |
+| `%` | Modulo |
+
+![image](./assets/r02/r03_03a.png)
+
+L'opérateur modulo sert à donner le reste de la division entière. En PowerShell, c'est le caractère `%` qui désigne cet opérateur. Pour la division entière par contre, PowerShell n'offre pas d'opérateur, à la différence de plusieurs autres langages. L'opérateur `/` produit une valeur de type `[double]` si le résultat n'est pas un nombre entier, et caster le résultat à `[int]` arrondit ce résultat à l'entier le plus proche. Par conséquent, la composante entière de la division peut être obtenue en appelant la fonction plancher de la classe utilitaire `Math`.
+
+![image](./assets/r02/r03_03b.png)
+
 

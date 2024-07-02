@@ -481,5 +481,154 @@ Ou encore, on peut toujours insérer les variables directement dans la chaîne, 
 | `/` | Division |
 | `%` | Modulo |
 
+![image](./assets/r02/r03_03a.png)
 
+L'opérateur modulo sert à donner le reste de la division entière. En PowerShell, c'est le caractère `%` qui désigne cet opérateur. Pour la division entière par contre, PowerShell n'offre pas d'opérateur, à la différence de plusieurs autres langages. L'opérateur `/` produit une valeur de type `[double]` si le résultat n'est pas un nombre entier, et caster le résultat à `[int]` arrondit ce résultat à l'entier le plus proche. Par conséquent, la composante entière de la division peut être obtenue en appelant la fonction plancher de la classe utilitaire Math.
+
+![image](./assets/r02/r03_03b.png)
+
+#### Opérateurs de comparaison
+
+Les opérateurs de comparaison retournent une valeur booléenne vraie ou fausse dans le pipeline, selon un critère précis. On les utilise entre deux valeurs.
+
+| Opérateur | Description | Exemple |
+| -- | -- | -- |
+| `-eq` | Égal à | `0 -eq 0` |
+| `-ne` | Pas égal à | `0 -ne "allo"` |
+| `-gt` | Plus grand que | `1 -gt 0` |
+| `-ge` | Plus grand ou égal à | `0 -ge 0` |
+| `-lt` | Plus petit que | `-1 -lt 0` |
+| `-le` | Plus petit ou égal à | `0 -le 0` |
+| `-like` | Comparaison avec wildcard | `"allo" -like "a*"` |
+| `-notlike` | Inverse de `-like` | `"bonjour" -notlike "a*"` |
+| `-match` | Comparaison regex | `"514-555-0123" -match "\d{3}-\d{3}-\d{4}"` |
+| `-nomatch` | Inverse de `-match` | `"(514) 555-0123" -match "\d{3}-\d{3}-\d{4}"` |
+| `-is` | Comparaison de type | `1.1 -is [double]` |
+| `-isnot` | Inverse de `-is` | `1 -isnot [double]` |
+| `-and` | Et logique | `(0 -eq 0) -and ("pomme" -eq "pomme")` |
+| `-or` | Ou logique | `(0 -eq 0) -or ("pomme" -eq "banane")` |
+| `-not` _ou_ `!` | Non logique | `-not (1 -eq 0)` <br/> `!(1 -eq 0)` |
+| `-xor` | Ou exclusif | `$true -xor $false` |
+
+![image](./assets/r02/r03_03c.png)
+
+
+#### Opérateurs d'affectation
+
+Les opérateurs d'affectation modifient l'opérande de gauche.
+
+| Opérateur	Description | Exemple | Équivalent |
+| -- | -- | -- |
+| `=` | Affectation simple | `$i = 2` |  |
+| `+=` | Affectation après addition | `$i += 2` | `$i = $i + 2` |
+| `-=` | Affectation après soustraction | `$i -= 2` | `$i = $i - 2` |
+| `*=` | Affectation après multiplication | `$i *= 2` | `$i = $i * 2` |
+| `/=` | Affectation après division | `$i /= 2` | `$i = $i / 2` |
+| `%=` | Affectation après modulo | `$i %= 2` | `$i = $i % 2` |
+| `++` | Incrémentation | `$i++` | `$i = $i + 1` |
+| `--` | Décrémentation | `$i--` | `$i = $i - 1` |
+
+
+## Collections et tableaux
+
+Les commandes PowerShell retournent souvent non pas un objet, mais plusieurs objets dans le pipeline. Par exemple, il est fréquent que la commande `Get-ChildItem` retourne plus d'un objet, car il y a généralement plusieurs fichiers et dossiers dans un dossier.
+
+![image](./assets/r02/r03_04a.png)
+
+
+### Compter les objets d'une collection
+
+On peut connaître le nombre d'éléments retournés par une commande à l'aide de la commande `Measure-Object`.
+
+![image](./assets/r02/r03_04b.png)
+
+Et comme plusieurs objets mis ensemble constituent une collection d'objets, et que cette collection est également un objet, on peut aussi lire l'attribut `.Length` de cette collection.
+
+![image](./assets/r02/r03_04c.png)
+
+### Accéder à un élément précis
+
+Une collection dans PowerShell est une liste d'objet, qu'on appelle aussi Tableau ou Array, et qui est composé de plusieurs valeurs dans un ordre précis. Chaque élément occupe une position: le premier a la position 0, le deuxième 1, et ainsi de suite. Ces nombre s'appelle un indice (index). On peut obtenir l'élément correspondant en spécifiant l'indice voulu entre crochets.
+
+![image](./assets/r02/r03_04d.png)
+
+### Créer un tableau
+
+Un tableau vide est créé avec la formule `@()`. Pour initialiser un nouveau tableau, donc, il suffit d'affecter le tableau vide à une variable. On peut ensuit lui ajouter des éléments, avec un opérateur d'affectation.
+
+![image](./assets/r02/r03_05a.png)
+
+Un tableau peut comprendre plusieurs éléments de types différents, mais habituellement, on il est plus logique d'y retrouver des éléments du même type.
+
+On peut affecter directement des valeurs à la création d'un tableau. Dans ce cas, on n'est pas obligé de respecter la syntaxe `@(…)`; elle est implicite. 
+
+![image](./assets/r02/r03_05b.png)
+
+On peut aussi utiliser un raccourci pour créer rapidement un tableau d'entiers.
+
+![image](./assets/r02/r03_05c.png)
+
+
+### Sélectionner des éléments
+
+Lorsqu'on a un tableau d'objet qui circule dans le pipeline, on peut vouloir manipuler ce tableau pour en ressortir certains éléments et pas d'autres.
+
+#### Sélection des indices
+
+![image](./assets/r02/r03_06a.png)
+
+#### Sélection conditionnelle
+
+![image](./assets/r02/r03_06b.png)
+
+Ou…
+
+![image](./assets/r02/r03_06c.png)
+
+![image](./assets/r02/r03_06d.png)
+
+![image](./assets/r02/r03_06e.png)
+
+
+### Opérations sur un tableau
+
+#### Opérateur -Contains
+
+Pour tester si un tableau contient une valeur spécifique, on peut utiliser l'opérateur `-Contains`.
+
+![image](./assets/r02/r03_07a.png)
+
+#### Concaténation
+
+Donne tous les objets des deux collections (fusionne deux collections bout à bout)
+
+![image](./assets/r02/r03_07b.png)
+
+#### Union
+
+Donne tous les objets de deux collections, mais sans doublons.
+
+![image](./assets/r02/r03_07c.png)
+
+#### Intersection
+
+Donne tous les objets qui ont à la fois dans deux collections
+
+![image](./assets/r02/r03_07d.png)
+
+#### Différence
+
+Retourne une collection moins tous les éléments semblables d'une deuxième collection
+
+![image](./assets/r02/r03_07e.png)
+
+#### Tri
+
+On peut trier une collection à l'aide de la commande `Sort-Object`, par ordre croissant ou décroissant.
+
+![image](./assets/r02/r03_07f.png)
+
+Par défaut, le tri s'effectue sur le nom d'affichage, mais il est possible de spécifier sur quelle propriété devra s'effectuer le tri.
+
+![image](./assets/r02/r03_07g.png)
 

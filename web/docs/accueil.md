@@ -25,8 +25,8 @@ Je suis Gabriel Gaudreault, votre enseignant, vous pouvez me rejoindre facilemen
 
 | Rencontre                                           | Contenu                                        | Exercices                              |
 | --------------------------------------              | ------------------------------------           | -------------------------------------- |
-| 27 Juin 2024 - [Séance #1](cours/Rencontre 1 - Introduction à PowerShell)        | Plan de cours, introduction à Powershell       | Mini-Exercice #1, Exercices 01A et 01B |
-| 4 juillet 2024 - [Séance #2](cours/Rencontre 2 - Fondements de PowerShell)      | Fondements de PowerShell                       | Mini-Exercice #2, Exercices 02A et 02B |
+| 27 Juin 2024 - [Séance #1](cours/01)        | Plan de cours, introduction à Powershell       | Mini-Exercice #1, Exercices 01A et 01B |
+| 4 juillet 2024 - [Séance #2](cours/02)      | Fondements de PowerShell                       | Mini-Exercice #2, Exercices 02A et 02B |
 | 8 juillet 2024 - [Séance #3](cours/rencontre3)      | Scripts, structures de contrôle et de données  | Mini-Exercice #3, Exercices 03A et 03B, **Début du [TP#1](tp/tp1)** |
 | 18 juillet 2024 - [Séance #4](cours/rencontre4)     | Paramètres, fonctions, fichiers et journalisation | Mini-Exercice #4, Exercices 04A et 04, **ÉCHÉANCE TP#1** |
 | 5 août 2024 - [Séance #5](cours/rencontre5)         | Gestion des comptes                            | Mini-Exercice #5, Exercices 05A et 05B |

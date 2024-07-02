@@ -424,3 +424,33 @@ Cela peut s'avérer très pratique pour, par exemple, calculer les tailles de fi
 ![image](./assets/r02/Types-MultiplicationOctets01.png)
 
 
+### Chaînes de caractères
+
+Les chaînes de caractères sont un type de données particulièrement commun dans tous les langages de programmation, et PowerShell ne fait pas exception.
+
+#### Guillemets
+
+En PowerShell, les chaînes de caractères sont balisées par des guillemets. Les guillemets simples et doubles sont acceptés.
+
+![image](./assets/r02/r03_02a.png)
+
+Un type de guillemet compris dans une chaîne balisée par l'autre type de guillemets sera affiché tel quel.
+
+![image](./assets/r02/r03_02b.png)
+
+Par contre, les deux types de guillemets se comportent différemment avec les variables. Le variables écrites dans une chaîne à guillemets doubles sont résolues, alors que celles dans une chaîne à guillemets simples ne le sont pas.
+
+![image](./assets/r02/r03_02c.png)
+
+Pour écrire à la fois des guillemets doubles dans une chaîne et résoudre une variable, on peut soit doubler les guillemets doubles (un double-double-guillemet représente le caractère du double-guillemet), ou encore mettre un caractère d'échappement (le backtick) juste avant pour le forcer à être représenté comme caractère dans la chaîne.
+
+![image](./assets/r02/r03_02d.png)
+
+Pour les cas plus complexes, on peut construire une variable temporaire au sein d'une chaîne de caractères, avec la formule $(). C'est pratique si on veut non pas résoudre une variable dans une chaîne, mais plutôt résoudre une expression.
+
+![image](./assets/r02/r03_02e.png)
+
+De cette manière, on peut résoudre n'importe quelle expression au sein de la chaîne de caractères.
+
+![image](./assets/r02/r03_02f.png)
+

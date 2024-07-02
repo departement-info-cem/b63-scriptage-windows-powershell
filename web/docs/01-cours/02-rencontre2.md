@@ -394,3 +394,96 @@ Dans le cas des types numériques, des attributs de la classe correspondant au t
 ![image](./assets/r02/Types-MethodeClasse01.png)
 
 
+### Conversion de types
+
+On peut convertir les valeurs d'un type à l'autre, et les castant, c’est-à-dire en forçant le type.
+
+![image](./assets/r02/Types-Conversion01.png)
+
+Il faut toutefois faire attention que la valeur soit compatible avec le type vers lequel on souhaite la convertir.
+
+![image](./assets/r02/Types-Conversion02.png)
+
+
+### Suffixes de multiplication des octets
+
+PowerShell nous offre un moyen de calculer facilement les grandeurs (Ko, Mo, Go, etc.)
+
+| Suffixe | Signification | Valeur |
+| -- | -- | -- |
+| Kb | Kibioctet | 2<sup>10</sup> = 1024 | 
+| Mb | Mébioctet | 2<sup>20</sup> = 1024<sup>2</sup> = 1 048 576 | 
+| Gb | Gibioctet | 2<sup>30</sup> = 1024<sup>3</sup> = 1 073 741 824 |
+| Tb | Tébioctet | 2<sup>40</sup> = 1024<sup>4</sup> = 1 099 511 627 776 |
+| Pb | Pébioctet | 2<sup>50</sup> = 1024<sup>5</sup> = 1 125 899 906 842 624 |
+
+
+
+Cela peut s'avérer très pratique pour, par exemple, calculer les tailles de fichiers.
+
+![image](./assets/r02/Types-MultiplicationOctets01.png)
+
+
+### Chaînes de caractères
+
+Les chaînes de caractères sont un type de données particulièrement commun dans tous les langages de programmation, et PowerShell ne fait pas exception.
+
+#### Guillemets
+
+En PowerShell, les chaînes de caractères sont balisées par des guillemets. Les guillemets simples et doubles sont acceptés.
+
+![image](./assets/r02/r03_02a.png)
+
+Un type de guillemet compris dans une chaîne balisée par l'autre type de guillemets sera affiché tel quel.
+
+![image](./assets/r02/r03_02b.png)
+
+Par contre, les deux types de guillemets se comportent différemment avec les variables. Le variables écrites dans une chaîne à guillemets doubles sont résolues, alors que celles dans une chaîne à guillemets simples ne le sont pas.
+
+![image](./assets/r02/r03_02c.png)
+
+Pour écrire à la fois des guillemets doubles dans une chaîne et résoudre une variable, on peut soit doubler les guillemets doubles (un double-double-guillemet représente le caractère du double-guillemet), ou encore mettre un caractère d'échappement (le backtick) juste avant pour le forcer à être représenté comme caractère dans la chaîne.
+
+![image](./assets/r02/r03_02d.png)
+
+Pour les cas plus complexes, on peut construire une variable temporaire au sein d'une chaîne de caractères, avec la formule $(). C'est pratique si on veut non pas résoudre une variable dans une chaîne, mais plutôt résoudre une expression.
+
+![image](./assets/r02/r03_02e.png)
+
+De cette manière, on peut résoudre n'importe quelle expression au sein de la chaîne de caractères.
+
+![image](./assets/r02/r03_02f.png)
+
+#### Concaténation
+
+On peut aussi concaténer deux chaînes de caractères avec l'opérateur de concaténation `+`.
+
+![image](./assets/r02/r03_02g.png)
+
+Une autre option pour unir plusieurs éléments d'une chaîne est d'utiliser l'opérateur de formatage `-f`. On écrit la chaîne de caractères mais en y insérant des jetons {n}. Ceux-ci seront remplacés par le contenu des variables spécifiées après l'opérateur `-f`.
+
+![image](./assets/r02/r03_02h.png)
+
+Ou encore, on peut toujours insérer les variables directement dans la chaîne, lorsqu'on utilise des guillemets doubles.
+
+![image](./assets/r02/r03_02i.png)
+
+
+### Opérateurs
+
+#### Opérateurs arithmétiques
+
+| Opérateur | Description |
+| -- | -- |
+| `+` | Addition |
+| `-` | Soustraction |
+| `*` | Multiplication |
+| `/` | Division |
+| `%` | Modulo |
+
+![image](./assets/r02/r03_03a.png)
+
+L'opérateur modulo sert à donner le reste de la division entière. En PowerShell, c'est le caractère `%` qui désigne cet opérateur. Pour la division entière par contre, PowerShell n'offre pas d'opérateur, à la différence de plusieurs autres langages. L'opérateur `/` produit une valeur de type `[double]` si le résultat n'est pas un nombre entier, et caster le résultat à `[int]` arrondit ce résultat à l'entier le plus proche. Par conséquent, la composante entière de la division peut être obtenue en appelant la fonction plancher de la classe utilitaire Math.
+
+![image](./assets/r02/r03_03b.png)
+

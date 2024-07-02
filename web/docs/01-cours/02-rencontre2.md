@@ -460,7 +460,7 @@ On peut aussi concaténer deux chaînes de caractères avec l'opérateur de conc
 
 ![image](./assets/r02/r03_02g.png)
 
-Une autre option pour unir plusieurs éléments d'une chaîne est d'utiliser l'opérateur de formatage `-f`. On écrit la chaîne de caractères mais en y insérant des jetons {n}. Ceux-ci seront remplacés par le contenu des variables spécifiées après l'opérateur `-f`.
+
 
 ![image](./assets/r02/r03_02h.png)
 
@@ -473,6 +473,13 @@ Ou encore, on peut toujours insérer les variables directement dans la chaîne, 
 
 #### Opérateurs arithmétiques
 
+| Opérateur | Description |
+| -- | -- |
+| `+` | Addition |
+| `-` | Soustraction |
+| `*` | Multiplication |
+| `/` | Division |
+| `%` | Modulo |
 
 
 

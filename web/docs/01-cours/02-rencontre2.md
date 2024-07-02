@@ -473,13 +473,13 @@ Ou encore, on peut toujours insérer les variables directement dans la chaîne, 
 
 #### Opérateurs arithmétiques
 
-| Opérateur | Description |
-| -- | -- |
-| `+` | Addition |
-| `-` | Soustraction |
-| `*` | Multiplication |
-| `/` | Division |
-| `%` | Modulo |
+| Opérateur | Description    |
+| --------- | -------------- |
+| `+`       | Addition       |
+| `-`       | Soustraction   |
+| `*`       | Multiplication |
+| `/`       | Division       |
+| `%`       | Modulo         |
 
 
 

@@ -177,7 +177,7 @@ C'est pratique pour explorer toutes les propriétés d'un objet. On peut le form
 
 ![image](./assets/r02/Pipeline-Formatage02.png)
 
-:::warn
+:::caution
 
 Une fois un objet passé dans la commande de formatage, il est automatiquement converti en texte. C'est pourquoi le formatage est généralement utilisé à la toute fin du pipeline, ou avant une commande de sortie (`Out-`).
 

@@ -1,13 +1,8 @@
----
-title: R01 - Introduction à PowerShell
-slug: "01"
-draft: false
----
+
+# Rencontre 1 - Introduction à PowerShell
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-# Rencontre 1 - Introduction à PowerShell
 
 :::note Résumé de la séance du jeudi 27 juin 2024
 

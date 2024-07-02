@@ -83,32 +83,31 @@ Pour explorer un objet, il est également utile de demander à lister toutes ses
 
 Il est ainsi plus facile de trouver des propriétés intéressantes.
 
+![image](./assets/r02/Objets-Methode01.png)
+
 
 ### Appeler une méthode
 
 L'appel d'une méthode se fait de la même manière que pour une propriété, sauf que la méthode peut accepter des paramètres. Comme une méthode n'est pas une commande PowerShell, les paramètres n'obéissent pas aux même règles: ils ne sont pas nommés, et doivent être spécifiés en parenthèses.
 
-![image](./assets/r02/Objets-Methode01.png)
+![image](./assets/r02/Objets-Methode02.png)
 
 Si la méthode qu'on appelle n'a pas de paramètre, il faut écrire les parenthèses quand même.
 
-![image](./assets/r02/Objets-Methode02.png)
+![image](./assets/r02/Objets-Type01.png)
 
 
 ### Connaître le type d'un objet
 
 Une manière de connaître le type d'un objet est d'appeler sa méthode GetType(). Cette méthode existe dans tous les types d'objets, et retourne un objet qui décrit le type de cet objet.
 
-![image](./assets/r02/Objets-Type01.png)
+![image](./assets/r02/Objets-Type02.png)
 
 Par exemple, la commande Get-Item peut retourner des fichiers et des dossiers, qui sont des structures très différentes. Selon l'élément que l'on tente d'obtenir, le type de l'objet résultant sera différent.
 
-![image](./assets/r02/Objets-Type02.png)
-
-Si la commande retourne plusieurs objets, alors le type de l'objet retourné sera un array, c'est-à-dire un objet qui contient plusieurs objets. On les identifie avec des crochets [ ] à la fin de leur type.
-
 ![image](./assets/r02/Objets-Type03.png)
 
+Si la commande retourne plusieurs objets, alors le type de l'objet retourné sera un array, c'est-à-dire un objet qui contient plusieurs objets. On les identifie avec des crochets [ ] à la fin de leur type.
 
 ## Le _pipeline_
 
@@ -117,10 +116,6 @@ Le _pipeline_ est le mécanisme par lequel l'information circule dans une sessio
 Pour mieux conceptualiser le _pipeline_, on peut voir chaque commande comme une machine qui prend un ou plusieurs objets en entrée (_input_), effectue un traitement en tenant compte de ces intrants (qui peuvent impliquer des appels au système d'exploitation), puis produit un objet en sortie (_output_) et le jette dans le _pipeline_.
 
 ![image](./assets/r02/Pipeline01.png)
-
-Une commande produisant un objet en sortie (ou un objet déposé directement dans le _pipeline_) sera donc passé en entrée à la commande suivante, qui le passera dans un de ses paramètres, le traitera et produira un autre objet de type différent, qui pourra être passé à la prochaine commande, et ainsi de suite.
-
-![image](./assets/r02/Pipeline02.png)
 
 À la fin du _pipeline_, l'objet qui s'y trouve "tombe" dans la console (le host), où il sera automatiquement converti en texte selon plusieurs règles régies à la fois par la configuration de PowerShell et par la nature de cet objet.
 
@@ -209,15 +204,6 @@ Par exemple, la commande `Start-Process` sert à démarrer un processus (un exé
 Mais il peut arriver qu'on souhaite enregistrer des informations sur le processus nouvellement créé. Certaines commandes offrent un paramètre `-PassThru`, qui permettent de forcer la production d'un objet décrivant le résultat de la commande. Dans ce cas, la commande `Start-Process` produit un objet décrivant le processus.
 
 ![image](./assets/r02/Pipeline-PassThru02.png)
-
-
-### Commande Tee-Object
-
-La commande `Tee-Object` sert à enregistrer un objet dans une variable ou un fichier, en le relayant en même temps sur le pipeline.
-
-![image](./assets/r02/Pipeline-Tee01.png)
-
-![image](./assets/r02/Pipeline-Tee02.png)
 
 ## Les variables
 

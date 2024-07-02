@@ -1,9 +1,14 @@
-# Rencontre 2 - Fondements de PowerShell
+---
+title: R02 - Fondements de PowerShell
+slug: "02"
+draft: false
+---
+
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
+# Rencontre 2 - Fondements de PowerShell
 
 :::note Résumé de la séance du jeudi 4 juillet 2024
 

@@ -1,3 +1,9 @@
+---
+title: R01 - Introduction à PowerShell
+slug: "01"
+draft: false
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

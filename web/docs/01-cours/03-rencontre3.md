@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
 
 - Mini-exercice #3
 - Exercices 03a et 03b
-- [TP#1](tp/tp1) à remettre pour le 17 juillet 2024 à 23h59
+- [TP#1](tp/tp1) à remettre pour le 18 juillet 2024 à 23h59
 
 </TabItem>
 

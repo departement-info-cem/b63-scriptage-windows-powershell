@@ -297,3 +297,858 @@ Choisissez l'installateur qui convient à vos besoin.
 Puis, lancez l'installateur et répondez aux questions. Assurez-vous de déposer une icône sur le bureau et d'enregistrer les actions au menu contextuel.
 
 ![image](./assets/r03/r05_06i.png)
+
+### Configuration
+
+Je vous recommande d'activer le thème de couleur "PowerShell ISE", car il est optimisé pour PowerShell. Mais s'il ne vous plait pas, vous pouvez en essayer d'autres, et même en installer de nouveaux.
+
+![image](./assets/r03/r05_06k.png)
+
+Ajustez les paramètres de VS Code. Vous pouvez explorer les paramètres disponibles, mais voici minimalement ceux que je vous recommande:
+
+Copiez-collez ceci dans le fichier settings.json, et sauvegardez-le.
+
+```json
+{
+    "powershell.codeFormatting.preset": "Stroustrup",
+    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+    "powershell.codeFormatting.useCorrectCasing": true,
+    "powershell.integratedConsole.focusConsoleOnExecute": false,
+
+    "[powershell]": {
+        "files.encoding": "utf8bom",
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "on",
+        "editor.codeLens": false
+    },
+
+    "workbench.colorTheme": "PowerShell ISE"   
+}
+```
+
+
+## Les structures de contrôle
+
+A priori, les instructions contenues dans un fichier de script dont exécutées dans un ordre séquentiel, que l'on appelle le **flot de contrôle** (*control flow*). Les structures de contrôle sont des instructions qui permettent de dévier le flot de contrôle et ainsi rendre le programme dynamique.
+
+Il existe quatre grands types de structures de contrôle:
+- La **sélection**, qui permet d'ignorer des instructions sous certaines conditions;
+- La **répétition**, qui permet de revenir en arrière et répéter une instruction ou un ensemble d'instructions plusieurs fois en boucle;
+- Le **sous-programme**, qui permet d'interrompre le cours normal du programme et d'exécuter du code déclaré ailleurs;
+- Le **déplacement**, qui permet de se "déplacer" ailleurs dans le code. Ce type de structure de contrôle est jugée désuète dans de nombreux langages de programmation, y compris PowerShell.
+
+
+### Les structures de sélection
+
+#### Sélection à une branche (*If*)
+
+La structure `If` permet une sélection de code conditionnelle. Dans sa variante à une branche, on pose une condition booléenne; si la condition est vraie, le code spécifié entre accolades sera exécuté, autrement il sera ignoré.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
+
+if ($nombre -eq 1) {
+    Write-Host "Un!"
+}
+
+Write-Host "Fini!"
+
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\If.ps1" result="
+Entrez un nombre de 1 à 3...: 1
+Un!
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+
+#### Sélection à deux branches (*If...Else*)
+
+Dans sa variable à deux branche, on déclare un deuxième bloc de code à l'aide de l'instruction `else`. C'est le code qui sera exécuté uniquement si la condition est évaluée `false`.
+
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
+
+if ($nombre -eq 1) {
+    Write-Host "Un!"
+}
+else {
+    Write-Host "Autre!"
+}
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\IfElse.ps1" result="
+Entrez un nombre de 1 à 3...: 2
+Autre!
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+
+
+#### Sélection imbriquée (*If...ElseIf...Else*)
+
+On peut imbriquer autant de blocs `ElseIf` que l'on veut entre le `If` et le `Else`. Chaque bloc `ElseIf` pose une condition. Si la condition spécifiée dans le bloc `If` ou dans le bloc `ElseIf` précédent est fausse, alors le bloc suivant tente son exécution. En dernier recours, le bloc `Else` est exécuté uniquement lorsque toutes les conditions des blocs `If` et `ElseIf` n'ont pas été respectées. Il est important de noter que dès qu'une condition est vraie, les blocs `ElseIf` suivants ne seront pas exécutés, même si leur condition est vraie; seulement le premier à évaluer vrai sera exécuté.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
+
+if ($nombre -eq 1) {
+    Write-Host "Un!"
+}
+elseif ($nombre -eq 2) {
+    Write-Host "Deux!"
+}
+else { 
+    Write-Host "Autre!" 
+}
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\IfElseifElse.ps1" result="
+Entrez un nombre de 1 à 3...: 2
+Deux!
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+
+#### Sélection à *n* branches (*switch*)
+
+L'instruction `Switch` est une alternative à `If`. Elle est pratique lorsqu'on a de nombreuses valeur à tester et que la condition est simple, comme les options d'un menu par exemple.
+
+Optionnellement, on peut spécifier un cas Default, qui est sélectionné si aucun autre cas n'est évalué vrai.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
+
+switch ($nombre) {
+    1   { Write-Host "Un!"      }
+    2   { Write-Host "Deux!"    }
+    3   { Write-Host "Trois!"   }
+    Default { 
+        Write-Host "Autre!" 
+    }
+}
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\Switch.ps1" result="
+Entrez un nombre de 1 à 3...: 2
+Deux!
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+
+#### Exemples de sélection
+
+##### Tester l'existence d'un répertoire
+
+```powershell
+if (Test-Path -Path "C:\Minou" -PathType Container) {
+    Write-Host "Le répertoire existe!"
+}
+else {
+    Write-Host "Le répertoire n'existe pas!"
+}
+```
+
+##### Tester si une collection est vide
+
+```powershell
+$chemin = Read-Host -Prompt "Entrez un chemin de répertoire"
+
+$documents = Get-ChildItem -Path $chemin | Where-Object { $_.Name -like "*.docx" }
+
+if ($documents.count -gt 0) {
+    Write-Host "Il y a $($documents.count) documents."
+}
+else {
+    Write-Host "Il n'y a aucun document."
+}
+```
+
+
+##### Tester si un objet est nul (cas particulier)
+
+```powershell
+$service = Get-Service "Nexistepas"
+
+if ($null -ne $service) {
+    Write-Host "Le service est: $($service.status)."
+}
+else {
+    Write-Host "Service introuvable."
+}
+```
+
+
+### Structures de répétition (boucles)
+
+#### Boucle *While*
+
+Dans une boucle *While*, le code entre accolade est exécuté si la condition est vraie. Le code est réexécuté encore et encore tant que l’évaluation de la condition soit toujours vraie. Lorsque la condition devient fausse, la boucle est interrompue et le code continue son exécution normale.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$i = 0
+
+while ($i -le 3) {
+    Write-Host $i
+    $i++
+}
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\While.ps1" result="
+0
+1
+2
+3
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+
+#### Boucle *Do ... While*
+
+Dans une boucle *Do ... While*, le code entre accolades après l’instruction do est exécuté.
+À la fin du bloc de code, si la condition est respectée, ce code est réexécuté.
+Lorsque la condition devient fausse, la boucle est interrompue et le code continue son exécution normale.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$i = 0
+
+do {
+    Write-Host $i
+    $i++
+}
+while ($i -le 3)
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\DoWhile.ps1" result="
+0
+1
+2
+3
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+:::warn
+
+La différence entre les boucles *While* et *Do...While* est subtile mais importante. Dans le cas de la boucle *While*, la condition est évaluée **avant** le premier tour de boucle. Donc il est possible que le code de la boucle ne soit exécuté aucune fois. À l'inverse, la condition de la boucle *Do...While* est évaluée après le premier tour; on a donc la certitude que le code de la boucle sera exécuté au moins une fois, même si la condition initiale ne le permettrait pas. Choisissez donc le type de boucle qui répond le mieux à votre besoin.
+
+:::
+
+
+#### Boucle *Do ... Until*
+
+Une boucle *Do ... Until* fonctionne de la même manière qu'une boucle *Do ... While*, à la différence qu'on spécifie une condition de sortie plutôt qu'une condition de réentrée. La condition spécifiée à la clause Until représente une condition qui, si elle est vraie, entraînera la fin de la boucle. Autrement dit, c'est l'inverse d'un *Do ... While*.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$i = 0
+
+do {
+    Write-Host $i
+    $i++
+}
+until ($i -gt 3)
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\DoUntil.ps1" result="
+0
+1
+2
+3
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+
+#### Boucle infinie
+
+Une boucle infinie survient lorsque la condition de bouclage est toujours vraie. En temps normal, on cherche à éviter ce scénario, sauf dans des cas très spécifiques. 
+
+Il faut toujours prévoir une façon de sortir de la boucle. On peut sortir de la boucle avec l’instruction `break`.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$i = 0
+while ($true) {
+    Write-Host $i
+
+    if ($i -gt 3) {
+        break
+    }
+    $i++
+}
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\WhileTrue.ps1" result="
+0
+1
+2
+3
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+
+#### Boucle compteur (*For*)
+
+Une boucle compteur est utile lorsqu’on souhaite répéter le code un certain nombre de fois. 
+
+La syntaxe comprend trois parties:
+- L’action à exécuter au début de la boucle (une seule fois)
+- La condition de bouclage (si elle est vraie, on entre dans la boucle)
+- L’action à exécuter après chaque tour de boucle
+
+La boucle *for* utilise typiquement une variable contenant un nombre entier comme compteur, bien que ce type de boucle puisse être utilisé de manière différente. 
+
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+for ($i = 0; $i -le 3; $i++) {
+    for ($j = 0; $j -le 2; $j++) {
+        Write-Host "$i.$j"
+    }
+}
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\For.ps1" result="
+0.0
+0.1
+0.2
+1.0
+1.1
+1.2
+2.0
+2.1
+2.2
+3.0
+3.1
+3.2
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+:::tip
+
+Les variables compteur sont typiquement nommées `$i`. Normalement, les variables devraient avoir un nom plus significatif, mais par convention il est acceptable de nommer les compteurs avec une simple lettre.
+
+Si deux boucles ou plus sont imbriquées les unes dans les autres, on peut utiliser les variables `$j`, `$k`, et ainsi de suite.
+
+:::
+
+
+#### Boucle de collection (*ForEach*)
+
+Une boucle de collection est utile lorsqu’on a du code à exécuter pour chaque élément d’une collection.
+
+La syntaxe comprend deux parties:
+- L’objet courant, **une variable** qui représente un élément. Il sera différent à chaque tour de boucle.
+- La **collection**, qui sera traitée un élément à la fois, à chaque tour de boucle.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$collection = 0..3
+
+foreach ($element in $collection) {
+    Write-Host $element
+}
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\ForEach.ps1" result="
+0
+1
+2
+3
+Fini!" />
+</TabItem>
+</Tabs>
+
+
+#### Boucle de pipeline (*ForEach-Object*)
+
+Au lieu de la boucle ForEach, on peut utiliser le cmdlet `ForEach-Object`. L’effet est le même, mais fait usage du pipeline PowerShell. 
+
+L’objet courant est représenté par la variable pipeline `$_` (ou alternativement, `$PSItem`).
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$collection = 0..3
+
+$collection | ForEach-Object {
+    Write-Host $_
+}
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\ForEach-Object.ps1" result="
+0
+1
+2
+3
+Fini!" />
+</TabItem>
+</Tabs>
+
+
+### Échappement (*break*)
+
+Pour quitter "de force" une structure de contrôle, on peut utiliser l'instruction `break`.
+
+```powershell
+While ($true) {
+
+    $reponse = Read-Host -Prompt "Voulez-vous quitter? (O/N)"
+
+    if ($reponse -eq "O") {
+        Write-Host "kbye"
+        break
+    } 
+
+    Write-Host "Attendons un peu..."
+    Start-Sleep -Seconds 2
+
+}
+```
+
+:::tip
+
+À tout moment durant l'exécution d'un script, lorsqu'on est prisonnier d'une boucle infini, on peut appuyer sur `CTRL+C` dans la console pour mettre fin à l'exécution du script instantanément.
+
+:::
+
+
+## Dictionnaires
+
+Un **dictionnaire**, aussi appelé *tableau associatif*, est une structure de données qui se caractérise par une liste de correspondance entre une clé et une valeur, qui représentent des propriétés. La clé représente le nom de la propriété, et la valeur, son contenu. Contrairement aux tableaux, l'ordre des éléments n'a pas d'importance, justement parce qu'on peut y accéder librement en utilisant la clé.
+
+Dans PowerShell, on travaille avec deux types de dictionnaires, des *HashTable*, et des *PSCustomObject*.
+
+
+### Tables de hachage (*HashTable*)
+
+La table de hachage (*HashTable*) est la forme la plus rudimentaire d'un dictionnaire en PowerShell.
+
+Voici un exemple de création d'un objet de type *HashTable*:
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$minou = @{ 
+    Nom = "Garfield"
+    Espece = "Felis catus"
+    Passion = "Manger"
+}
+```
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\" command="$minou" result="
+Name            Value
+----            -----
+Passion         Manger
+Nom             Garfield
+Espece          Felis catus"/>
+
+</TabItem>
+</Tabs>
+
+Chaque clé de cet objet est le nom d'une de ses propriétés. On peut donc accéder à une propriété avec la notation ".".
+
+<PowerShellWindow workdir="C:\" command="$minou.Passion" result="
+Manger
+">
+
+</PowerShellWindow>
+
+
+:::tip
+Pour créer un objet *hashtable* en une seule ligne, utilisez le caractère `;` entre les éléments.
+
+```powershell
+$minou = @{ Nom = "Garfield" ; Espece = "Felis catus" ; Passion = "Manger" }
+```
+:::
+
+### *Hashtables* triées
+
+Généralement, on n'a pas besoin qu'un dictionnaire soit trié, car il sert à accéder à ses propriétés à la demande, et non de manière séquentielle. Mais si, pour une quelconque raison, vous souhaitiez tout de même préserver l'ordre des éléments du dictionnaire, pour pouvez déclarer l'accélérateur `[ordered]`.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$minou = [ordered]@{ 
+    Nom = "Garfield"
+    Espece = "Felis catus"
+    Passion = "Manger"
+}
+```
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\" command="$minou" result="
+Name            Value
+----            -----
+Nom             Garfield
+Espece          Felis catus
+Passion         Manger"/>
+
+
+
+<PowerShellWindow>
+```
+Name            Value
+----            -----
+Nom             Garfield
+Espece          Felis catus
+Passion         Manger"/>
+```
+</PowerShellWindow>
+
+</TabItem>
+</Tabs>
+
+### Comportement du *HashTable*
+
+Un *HashTable* n'a pas vraiment le même comportement qu'un objet PowerShell. Ce type d'objet est en fait une structure de données composée de clés et de valeurs, comme un dictionnaire.
+
+L'exemple suivant montre un tableau de *HashTable*, le résultat que nous nous attendrions d'avoir lors de l'affichage et le résultat réel.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$minous = @(
+    @{
+        Nom = "Garfield"
+        Espece = "Felis catus"
+        Passion = "Manger"
+    },
+    @{
+        Nom = "Grumpy Cat"
+        Espece = "Felis catus"
+        Passion = "Faire la baboune"
+    }
+)
+```
+
+</TabItem>
+<TabItem value="resultat_souhaite" label="Résultat souhaité">
+
+<PowerShellWindow workdir="C:\" command="$minou" result="
+Nom           Espece         Passion
+---           ------         -------
+Garfield      Felis catus    Manger
+Grumpy Cat    Felis catus    Faire la baboune" />
+
+</TabItem>
+<TabItem value="resultat" label="Résultat réel">
+
+<PowerShellWindow workdir="C:\" command="$minou" result="
+Name            Value
+----            -----
+Passion         Manger
+Nom             Garfield
+Espece          Felis catus
+Passion         Faire la baboune
+Nom             Grumpy Cat
+Espece          Felis catus" />
+
+</TabItem>
+</Tabs>
+
+
+### Objets personnalisés (*PSCustomObject*)
+
+Pour créer un objet disposant de propriétés propres mais se comportant de la même manière que les objets PowerShell, on utilise généralement le type *PSCustomObject*. Ce type représente littéralement un objet PowerShell personnalité, duquel nous définissons nous-même les propriétés. Ce type d'objet est conçu pour imiter un objet standard composé de propriétés et de méthodes, contrairement au *HashTable* qui n'est qu'un dictionnaire servant à associer des clés à des valeurs. C'est d'ailleurs ce type d'objet que produit la commande `Select-Object -Property`.
+
+On crée un objet PSCustomObject de la même manière qu'un *HashTable*, à une différence près: on doit spécifier qu'il s'agit du type PSCustomObject.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$minou = [PSCustomObject]@{ 
+    Nom = "Garfield"
+    Espece = "Felis catus"
+    Passion = "Manger"
+}
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\" command="$minou" result="
+Nom           Espece         Passion
+---           ------         -------
+Garfield      Felis catus    Manger" />
+
+</TabItem>
+</Tabs>
+
+
+### Collections de *PSCustomObject*
+
+Contrairement aux *HashTable*, les *PSCustomObject* sont structurés pour faciliter leur manipulation en collection.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+$minous = @(
+    [PSCustomObject]@{
+        Nom = "Garfield"
+        Espece = "Felis catus"
+        Passion = "Manger"
+    },
+    [PSCustomObject]@{
+        Nom = "Grumpy Cat"
+        Espece = "Felis catus"
+        Passion = "Faire la baboune"
+    }
+)
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\" command="$minous" result="
+Nom           Espece         Passion
+---           ------         -------
+Garfield      Felis catus    Manger
+Grumpy Cat    Felis catus    Faire la baboune" />
+
+</TabItem>
+</Tabs>
+
+
+#### Modifier une propriété
+
+Pour modifier une propriété d'un objet *PSCustomObject*, on n'a qu'à lui affecter une nouvelle valeur.
+
+```powershell
+$minou.Passion = "Manger de la lasagne"
+```
+
+Il faut toutefois que la propriété existe dans l'objet.
+
+
+#### Ajouter des propriétés
+
+Nous avons vu plus haut comment créer un objet *PSCustomObject* lorsqu'on connaît toutes les propriétés de l'objet, et comment affecter une nouvelle valeur à une propriété existante. Pour créer une nouvelle propriété dans l'objet, on peut utiliser la commande `Add-Member` et lui passer en entrée l'objet à modifier par le *pipeline*.
+
+Pour une propriété simple, on n'a qu'à créer un nouveau membre de type "NoteProperty" et lui affecter un nom et une valeur.
+
+```powershell
+$minou | Add-Member -MemberType NoteProperty -Name "Couleur" -Value "Roux"
+```
+
+#### Ajouter des méthodes
+
+On peut aussi ajouter d'autres types de membres, dont des méthodes. Contrairement aux propriétés qui retournent un objet stocké statiquement, les méthodes permettent d'exécuter du code. 
+
+Le procédé est semblable à l'ajout de propriétés, à l'exception qu'on définit un membre de type ScriptMethod et qu'on lui spécifie un ScriptBlock.
+
+```powershell
+$minou | Add-Member -MemberType ScriptMethod -Name "Miauler" -Value { Write-Host "Miaou" }
+```
+
+
+### Splatting
+
+Le *splatting* est une technique qui consiste à identifier les arguments à passer dans une commande à l'intérieur d'un objet.
+
+Il suffit de définir un HashTable composé des arguments, dont la clé représente le nom de l'argument et la valeur, la valeur de l'argument. Dans le cas des arguments de type *switch*, on leur affecte la valeur `$true`. Puis, il suffit se passer cette variable à la commande, en utilisant la forme `@Nomdelavariable`.
+
+<Tabs>
+<TabItem value="avec" label="Avec splatting">
+
+```powershell
+$splat = @{
+    FilePath = "C:\Windows\Notepad.exe"
+    ArgumentList = "C:\minou\allo.txt"
+    WorkingDirectory = "C:\"
+    PassThru = $true
+    WindowStyle = "Maximized"
+    Wait = $true
+    Verb = "Runas"
+}
+
+Start-Process @splat
+```
+
+</TabItem>
+<TabItem value="sans" label="Sans splatting">
+
+```powershell
+Start-Process -FilePath "C:\Windows\Notepad.exe" -ArgumentList "C:\minou\allo.txt" -WorkingDirectory "C:\" -PassThru -WindowStyle "Maximized" -Wait -Verb "Runas"
+```
+
+</TabItem>
+</Tabs>
+
+
+
+
+## Bonnes pratiques de scriptage
+
+Certaines bonnes pratiques sont d'usage lorsqu'on développe un script en PowerShell.
+
+### Alias et noms de paramètres
+
+Dans un script, on cherche la lisibilité avant tout. On doit donc autant que possible **éviter d'utiliser les alias** et leur préférer les vrais noms des commandes (sous leur forme Verbe-Nom).
+
+On doit aussi éviter les paramètres positionnels. On peut les utiliser dans certaines commandes où leur utilisation est évidente, comme `Write-Host`, `Where-Object` ou `ForEach-Object`, mais règle générale, on préfère voir le nom des paramètres.
+
+```powershell
+❌ dir C:\Windows
+
+✅ Get-ChildItem -Path "C:\Windows"
+```
+
+### Commentaires
+
+Il est important de bien documenter son code au moyen de commentaires pertinents. Un commentaire est du texte compris à l'intérieur du fichier mais qui est ignoré pendant l'exécution du script. La plupart des éditeurs de scripts afficheront les commentaires d'une couleur distinctive, généralement en vert.
+
+En PowerShell, le caractère qui désigne les commentaires est le carré ou *hash* (`#`). Dès qu'un `#` est rencontré sur une ligne, tous les caractères jusqu'à la fin de la ligne sont ignorés. Si la ligne commence par un `#`, c'est la ligne au complet qui est ignorée.
+
+Il est aussi possible de définir un bloc de commentaires sur plusieurs lignes. Dans ce cas, le bloc commence par `<#` et finit par `#>`.
+
+```powershell
+<#
+    Ceci est un exemple. 
+    Voici un bloc de commentaires.
+#>
+
+$Path = "C:\Minou" # le répertoire
+
+If (-not (Test-Path -Path $Path)) {
+    # Le répertoire n'existe pas, alors on le créée
+    New-Item -Path "C:\Minou" -ItemType Directory
+}
+```
+
+:::caution
+
+N'en faites pas trop! Un commentaire est utile mais un code clair et lisible est mieux. C'est pour cela qu'on préfère utiliser les vrais noms des commandes et des paramètres; les commandes parlent d'elles-mêmes. Les commentaires devraient être utilisés lorsque la logique est complexe ou pour donner du contexte, pour expliquer **pourquoi** une commande est utilisé à cet endroit dans le script plutôt que ce qu'elle fait.
+
+:::
+
+
+### Indentation
+
+L'indentation est importante en programmation, car elle permet de voir visuellement dans quel bloc se situe le code. C'est particulièrement utile dans une structure de contrôle, comme une condition ou une boucle.
+
+Par convention, un niveau d'indentation est équivalent à quatre espaces. C'est cette taille de tabulation que Visual Studio Code insère lorsqu'on presse la touche de tabulation.
+
+![image](./assets/r03/r05_07a.png)
+
+:::danger
+
+PowerShell n'impose pas l'indentation, contrairement à Python par exemple. Elle sert uniquement à la lisibilité. Toutefois, même si votre code PowerShell fonctionne sans indentation, vous risquez de perdre des points dans vos évaluation si votre code est mal indenté.
+
+:::
+
+Il y a également des préférences quant à si l'ouverture d'accolades se fait sur la même ligne ou sur la ligne suivante. Certains programmeurs préfèrent la première forme, d'autres la deuxième. Les deux sont valides, mais celle qui est configurée par défaut dans VS Code dans les laboratoires est celle du professeur, où les accolades commencent à la fin de la ligne.
+
+:::tip
+
+Visual Studio Code est capable d'ajuster automatiquement les indentations en fonction des ouvertures et fermetures de blocs. Vous n'avez qu'à lancer la fonctionnalité de mise en forme par le menu contextuel ou avec le raccourci clavier `Maj+Alt+F`.
+
+![image](./assets/r03/r05_07b.png)
+
+:::

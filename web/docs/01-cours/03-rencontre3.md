@@ -1002,3 +1002,15 @@ $minous = @(
     }
 )
 ```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\" command="$minous" result="
+Nom           Espece         Passion
+---           ------         -------
+Garfield      Felis catus    Manger
+Grumpy Cat    Felis catus    Faire la baboune" />
+
+</TabItem>
+</Tabs>

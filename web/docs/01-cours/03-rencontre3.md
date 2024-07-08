@@ -344,5 +344,20 @@ Il existe quatre grands types de structures de contrôle:
 
 La structure `If` permet une sélection de code conditionnelle. Dans sa variante à une branche, on pose une condition booléenne; si la condition est vraie, le code spécifié entre accolades sera exécuté, autrement il sera ignoré.
 
+<Tabs>
+<TabItem value="code" label="Code">
+
+
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\If.ps1" result="
+Entrez un nombre de 1 à 3...: 1
+Un!
+Fini!" />
+
+</TabItem>
+</Tabs>
 
 

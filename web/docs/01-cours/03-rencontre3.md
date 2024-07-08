@@ -184,292 +184,116 @@ Notez que ces variables n'existent que pendant l'exécution d'un script. Elles s
 ![image](./assets/r03/script_varconsole.png)
 
 
+### Le caractère *BackTick*
+
+Voici quelques caractères spéciaux qui doivent être spécifiés à l'aide du caractère d'échappement, le *backtick*, qui ressemble à un accent grave sans la lettre qui l'accompagne.
+
+| Caractère | Hex. | Déc. | Description |
+| -- | -- | -- | -- |
+| \`r | 0x0D | 13 | Retour de chariot (carriage-return) |
+| \`n | 0x0A | 10 | Saut de ligne (line-feed) - changement de ligne sur les systèmes UNIX
+| \`r\`n | 0x0D, 0x0A | 13, 10 | CRLF (retour de chariot + saut de ligne) - changement de ligne sur Windows |
+| \`t | 0x09 | 9 | Caractère de tabulation |
+| \`f | 0x0C | 12 | Caractère de saut de page (pour les imprimantes) |
 
 
-### Configuration
+Le caractère *Backtick* agit également de caractère d'échappement, c'est-à-dire que tout caractère qui le suit dans une chaîne de caractères est interprété comme un caractère normal, sans égard à son utilité normale.
 
-Je vous recommande d'activer le thème de couleur "PowerShell ISE", car il est optimisé pour PowerShell. Mais s'il ne vous plait pas, vous pouvez en essayer d'autres, et même en installer de nouveaux.
+| Caractère | Hex. | Déc. | Description |
+| -- | -- | -- | -- |
+| \`\` | 0x60 | 96 | Le caractère *backtick* (accent grave) |
+| \`" | 0x22 | 34 | Le guillemet double |
+| \`' | 0x27 | 39 | Le guillemet simple |
+| \`# | 0x23 | 35 | Le carré (pour marquer les commentaires) |
+| \`$ | 0x24 | 36 | Le signe de piastre (pour marquer les variables) |
 
-![image](./assets/r03/r05_06k.png)
-
-Ajustez les paramètres de VS Code. Vous pouvez explorer les paramètres disponibles, mais voici minimalement ceux que je vous recommande:
-
-Copiez-collez ceci dans le fichier settings.json, et sauvegardez-le.
-
-```json
-{
-    "powershell.codeFormatting.preset": "Stroustrup",
-    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
-    "powershell.codeFormatting.useCorrectCasing": true,
-    "powershell.integratedConsole.focusConsoleOnExecute": false,
-
-    "[powershell]": {
-        "files.encoding": "utf8bom",
-        "editor.suggestSelection": "first",
-        "editor.tabCompletion": "on",
-        "editor.codeLens": false
-    },
-
-    "workbench.colorTheme": "PowerShell ISE"   
-}
-```
-
-
-## Les structures de contrôle
-
-A priori, les instructions contenues dans un fichier de script dont exécutées dans un ordre séquentiel, que l'on appelle le **flot de contrôle** (*control flow*). Les structures de contrôle sont des instructions qui permettent de dévier le flot de contrôle et ainsi rendre le programme dynamique.
-
-Il existe quatre grands types de structures de contrôle:
-- La **sélection**, qui permet d'ignorer des instructions sous certaines conditions;
-- La **répétition**, qui permet de revenir en arrière et répéter une instruction ou un ensemble d'instructions plusieurs fois en boucle;
-- Le **sous-programme**, qui permet d'interrompre le cours normal du programme et d'exécuter du code déclaré ailleurs;
-- Le **déplacement**, qui permet de se "déplacer" ailleurs dans le code. Ce type de structure de contrôle est jugée désuète dans de nombreux langages de programmation, y compris PowerShell.
-
-
-### Les structures de sélection
-
-#### Sélection à une branche (*If*)
-
-La structure `If` permet une sélection de code conditionnelle. Dans sa variante à une branche, on pose une condition booléenne; si la condition est vraie, le code spécifié entre accolades sera exécuté, autrement il sera ignoré.
-
-<Tabs>
-<TabItem value="code" label="Code">
+Finalement, le caractère *Backtick* peut aussi être utilisé pour couper une ligne en deux.
 
 ```powershell
-[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
-
-if ($nombre -eq 1) {
-    Write-Host "Un!"
-}
-
-Write-Host "Fini!"
-
-```
-
-</TabItem>
-<TabItem value="resultat" label="Résultat">
-
-<PowerShellWindow workdir="C:\Scripts" command=".\If.ps1" result="
-Entrez un nombre de 1 à 3...: 1
-Un!
-Fini!" />
-
-</TabItem>
-</Tabs>
-
-
-#### Sélection à deux branches (*If...Else*)
-
-Dans sa variable à deux branche, on déclare un deuxième bloc de code à l'aide de l'instruction `else`. C'est le code qui sera exécuté uniquement si la condition est évaluée `false`.
-
-
-<Tabs>
-<TabItem value="code" label="Code">
-
-```powershell
-[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
-
-if ($nombre -eq 1) {
-    Write-Host "Un!"
-}
-else {
-    Write-Host "Autre!"
-}
-
-Write-Host "Fini!"
-```
-
-</TabItem>
-<TabItem value="resultat" label="Résultat">
-
-<PowerShellWindow workdir="C:\Scripts" command=".\IfElse.ps1" result="
-Entrez un nombre de 1 à 3...: 2
-Autre!
-Fini!" />
-
-</TabItem>
-</Tabs>
-
-
-
-#### Sélection imbriquée (*If...ElseIf...Else*)
-
-On peut imbriquer autant de blocs `ElseIf` que l'on veut entre le `If` et le `Else`. Chaque bloc `ElseIf` pose une condition. Si la condition spécifiée dans le bloc `If` ou dans le bloc `ElseIf` précédent est fausse, alors le bloc suivant tente son exécution. En dernier recours, le bloc `Else` est exécuté uniquement lorsque toutes les conditions des blocs `If` et `ElseIf` n'ont pas été respectées. Il est important de noter que dès qu'une condition est vraie, les blocs `ElseIf` suivants ne seront pas exécutés, même si leur condition est vraie; seulement le premier à évaluer vrai sera exécuté.
-
-<Tabs>
-<TabItem value="code" label="Code">
-
-```powershell
-[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
-
-if ($nombre -eq 1) {
-    Write-Host "Un!"
-}
-elseif ($nombre -eq 2) {
-    Write-Host "Deux!"
-}
-else { 
-    Write-Host "Autre!" 
-}
-
-Write-Host "Fini!"
-```
-
-</TabItem>
-<TabItem value="resultat" label="Résultat">
-
-<PowerShellWindow workdir="C:\Scripts" command=".\IfElseifElse.ps1" result="
-Entrez un nombre de 1 à 3...: 2
-Deux!
-Fini!" />
-
-</TabItem>
-</Tabs>
-
-
-#### Sélection à *n* branches (*switch*)
-
-L'instruction `Switch` est une alternative à `If`. Elle est pratique lorsqu'on a de nombreuses valeur à tester et que la condition est simple, comme les options d'un menu par exemple.
-
-Optionnellement, on peut spécifier un cas Default, qui est sélectionné si aucun autre cas n'est évalué vrai.
-
-<Tabs>
-<TabItem value="code" label="Code">
-
-```powershell
-[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
-
-switch ($nombre) {
-    1   { Write-Host "Un!"      }
-    2   { Write-Host "Deux!"    }
-    3   { Write-Host "Trois!"   }
-    Default { 
-        Write-Host "Autre!" 
-    }
-}
-
-Write-Host "Fini!"
-```
-
-</TabItem>
-<TabItem value="resultat" label="Résultat">
-
-<PowerShellWindow workdir="C:\Scripts" command=".\Switch.ps1" result="
-Entrez un nombre de 1 à 3...: 2
-Deux!
-Fini!" />
-
-</TabItem>
-</Tabs>
-
-
-#### Exemples de sélection
-
-##### Tester l'existence d'un répertoire
-
-```powershell
-if (Test-Path -Path "C:\Minou" -PathType Container) {
-    Write-Host "Le répertoire existe!"
-}
-else {
-    Write-Host "Le répertoire n'existe pas!"
-}
-```
-
-##### Tester si une collection est vide
-
-```powershell
-$chemin = Read-Host -Prompt "Entrez un chemin de répertoire"
-
-$documents = Get-ChildItem -Path $chemin | Where-Object { $_.Name -like "*.docx" }
-
-if ($documents.count -gt 0) {
-    Write-Host "Il y a $($documents.count) documents."
-}
-else {
-    Write-Host "Il n'y a aucun document."
-}
+Copy-Item -Path "C:\Minou\miaou.txt" `
+          -Destination "C:\Pitou\wouf.txt" `
+          -Force
 ```
 
 
-##### Tester si un objet est nul (cas particulier)
+:::tip
 
-```powershell
-$service = Get-Service "Nexistepas"
+Ce caractère est difficile à trouver sur certains clavier, dont celui qui est le plus commun au Québec. Sur ce clavier (celui où on presse sur la touche de l'accent grave puis sur celle de la lettre), il suffit de faire un "espace accent grave".
 
-if ($null -ne $service) {
-    Write-Host "Le service est: $($service.status)."
-}
-else {
-    Write-Host "Service introuvable."
-}
-```
+![image](./assets/r03/r05_05a.png)
+
+:::
 
 
-### Structures de répétition (boucles)
+## Visual Studio Code
 
-#### Boucle *While*
+Les scripts PowerShell sont des fichiers texte, il est donc parfaitement possible de les développer à l'aide de n'importe quel éditeur de texte (le bloc-notes, Notepad++, Nano, etc.)
 
-Dans une boucle *While*, le code entre accolade est exécuté si la condition est vraie. Le code est réexécuté encore et encore tant que l’évaluation de la condition soit toujours vraie. Lorsque la condition devient fausse, la boucle est interrompue et le code continue son exécution normale.
+Celui que nous utiliserons dans ce cours est [**Visual Studio Code**](https://code.visualstudio.com/), un environnement intégré de développement (IDE) gratuit en *open-source* développé par Microsoft. Il possède de nombreuses fonctionnalités pour aider les programmeurs à écrire, gérer et tester leur code. Il supporte de nombreux langages de programmation, dont PowerShell. C'est cet outil de développement que vous utiliserez tout au long de ce cours.
 
-<Tabs>
-<TabItem value="code" label="Code">
-
-```powershell
-$i = 0
-
-while ($i -le 3) {
-    Write-Host $i
-    $i++
-}
-
-Write-Host "Fini!"
-```
-
-</TabItem>
-<TabItem value="resultat" label="Résultat">
-
-<PowerShellWindow workdir="C:\Scripts" command=".\While.ps1" result="
-0
-1
-2
-3
-Fini!" />
-
-</TabItem>
-</Tabs>
+![image](./assets/r03/r05_06a.png)
 
 
-#### Boucle *Do ... While*
+:::info
+Il existe d'autres logiciels que vous êtes libres d'explorer. Vous connaissez peut-être [**Windows PowerShell ISE**](https://learn.microsoft.com/fr-ca/powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-5.1), qui est inclus dans Windows. Bien qu'il ne soit pas aussi avancé que VS Code sur plusieurs aspects, il peut s'avérer utile lorsque vous devez développer ou modifier un script à la volée sur un serveur, sans vouloir installer un logiciel. Vous pouvez le démarrer par le menu Démarrer, ou encore en lançant la commande `PowerShell_ISE.exe`. Notez cependant que Windows PowerShell ISE ne supporte pas les versions de PowerShell plus récentes; son support se termine à la version 5.1.  Microsoft a cessé d'améliorer ce logiciel au profit de Visual Studio Code, qui est désormais considéré par Microsoft comme l'environnement de développement "officiel" pour PowerShell.
 
-Dans une boucle *Do ... While*, le code entre accolades après l’instruction do est exécuté.
-À la fin du bloc de code, si la condition est respectée, ce code est réexécuté.
-Lorsque la condition devient fausse, la boucle est interrompue et le code continue son exécution normale.
+Parmi les autres environnements populaires, il y a [**Idera PowerShell Plus**](https://www.idera.com/productssolutions/freetools/powershellplus/), principalement orienté vers les administrateurs de bases de données, et [**SAPIEN PowerShell Studio**](https://www.sapien.com/software/powershell_studio), qui se démarque par de nombreuses fonctionnalités dont un éditeur d'interfaces graphiques, un compilateur intégré, et plusieurs accélérateurs, mais qui coûte assez cher (250$ US par année ou 25$ US par mois).
+:::
 
-<Tabs>
-<TabItem value="code" label="Code">
+### Espace de travail (*workspace*)
 
-```powershell
-$i = 0
+Il est idéal de travailler dans VS Code en y ouvrant un dossier. Vous pouvez le faire soit en cliquant sur Ouvrir le dossier dans l'interface de VS Code, soit 
 
-do {
-    Write-Host $i
-    $i++
-}
-while ($i -le 3)
+![image](./assets/r03/r05_06b.png)
 
-Write-Host "Fini!"
-```
+Dans le panneau de gauche, vous pouvez voir tous vos fichiers et dossiers et les ouvrir dans les onglets. Vous pouvez-même ouvrir plusieurs fichiers côte à côte.
 
-</TabItem>
-<TabItem value="resultat" label="Résultat">
+![image](./assets/r03/r05_06c.png)
 
-<PowerShellWindow workdir="C:\Scripts" command=".\DoWhile.ps1" result="
-0
-1
-2
-3
-Fini!" />
 
-</TabItem>
-</Tabs>
+### Palette de commandes
+
+Vous pouvez ouvrir la palette de commandes en appuyant sur la touche F1 ou Ctrl+Maj+P. Vous pouvez rechercher des fonctionnalités et des actions.
+
+![image](./assets/r03/r05_06d.png)
+
+
+### Terminal intégré et exécution PowerShell
+
+Lorsque vous avez un fichier .PS1 ouvert, le terminal intégré PowerShell démarre automatiquement.
+
+Vous pouvez utiliser ce terminal de la même manière qu'une invite PowerShell standard.
+
+Si vous sélectionnez une partie de votre code et appuyez sur la touche F8, ce code sera automatiquement passé dans le terminal.
+
+![image](./assets/r03/r05_06e.png)
+
+
+Pour lancer le script facilement, appuyez simplement sur F5. Cela exécute le script dans le terminal intégré en mode débogage.
+
+![image](./assets/r03/r05_06f.png)
+
+
+Pour automatiquement sélectionner toutes les occurrences d'un même mot (par exemple, pour changer le nom d'une variable partout à la fois), sélectionner le texte à remplacer puis faites Ctrl+F2 (ou clic droit, Modifier toutes les occurrences).
+
+![image](./assets/r03/r05_06g.png)
+
+
+### Installation
+
+Dans les laboratoires du Collège, VS Code est déjà installé et configuré pour le développement de scripts en PowerShell. Si vous souhaitez l'utiliser sur votre ordinateur personnel ou sur une machine virtuelle, suivez ces directives.
+
+Téléchargez l'application sur le site officiel (https://code.visualstudio.com/). Il en existe plusieurs variantes:
+- Stable build: c'est la version la plus stable, et celle que vous devriez utiliser.
+- Insider build: c'est une préversion pour tester les nouvelles fonctionnalités. Il peut y avoir des bogues.
+
+Choisissez l'installateur qui convient à vos besoin.
+
+- User Installer: c'est l'option par défaut. VS Code s'installe dans votre profil utilisateur, donc vous n'avez pas besoin de droits d'administration. Il sera installé seulement pour vous, pas pour les autres utilisateurs.
+- System Installer: pour installer VS Code pour tous les utilisateurs du système. Ça prend des droits d'administration.
+
+![image](./assets/r03/r05_06h.png)
+
+Puis, lancez l'installateur et répondez aux questions. Assurez-vous de déposer une icône sur le bureau et d'enregistrer les actions au menu contextuel.
+
+![image](./assets/r03/r05_06i.png)

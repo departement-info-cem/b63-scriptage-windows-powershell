@@ -357,3 +357,16 @@ if ($nombre -eq 1) {
 Write-Host "Fini!"
 
 ```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\If.ps1" result="
+Entrez un nombre de 1 à 3...: 1
+Un!
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+

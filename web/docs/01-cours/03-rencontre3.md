@@ -297,3 +297,108 @@ Choisissez l'installateur qui convient à vos besoin.
 Puis, lancez l'installateur et répondez aux questions. Assurez-vous de déposer une icône sur le bureau et d'enregistrer les actions au menu contextuel.
 
 ![image](./assets/r03/r05_06i.png)
+
+### Configuration
+
+Je vous recommande d'activer le thème de couleur "PowerShell ISE", car il est optimisé pour PowerShell. Mais s'il ne vous plait pas, vous pouvez en essayer d'autres, et même en installer de nouveaux.
+
+![image](./assets/r03/r05_06k.png)
+
+Ajustez les paramètres de VS Code. Vous pouvez explorer les paramètres disponibles, mais voici minimalement ceux que je vous recommande:
+
+Copiez-collez ceci dans le fichier settings.json, et sauvegardez-le.
+
+```json
+{
+    "powershell.codeFormatting.preset": "Stroustrup",
+    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+    "powershell.codeFormatting.useCorrectCasing": true,
+    "powershell.integratedConsole.focusConsoleOnExecute": false,
+
+    "[powershell]": {
+        "files.encoding": "utf8bom",
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "on",
+        "editor.codeLens": false
+    },
+
+    "workbench.colorTheme": "PowerShell ISE"   
+}
+```
+
+
+## Les structures de contrôle
+
+A priori, les instructions contenues dans un fichier de script dont exécutées dans un ordre séquentiel, que l'on appelle le **flot de contrôle** (*control flow*). Les structures de contrôle sont des instructions qui permettent de dévier le flot de contrôle et ainsi rendre le programme dynamique.
+
+Il existe quatre grands types de structures de contrôle:
+- La **sélection**, qui permet d'ignorer des instructions sous certaines conditions;
+- La **répétition**, qui permet de revenir en arrière et répéter une instruction ou un ensemble d'instructions plusieurs fois en boucle;
+- Le **sous-programme**, qui permet d'interrompre le cours normal du programme et d'exécuter du code déclaré ailleurs;
+- Le **déplacement**, qui permet de se "déplacer" ailleurs dans le code. Ce type de structure de contrôle est jugée désuète dans de nombreux langages de programmation, y compris PowerShell.
+
+
+### Les structures de sélection
+
+#### Sélection à une branche (*If*)
+
+La structure `If` permet une sélection de code conditionnelle. Dans sa variante à une branche, on pose une condition booléenne; si la condition est vraie, le code spécifié entre accolades sera exécuté, autrement il sera ignoré.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
+
+if ($nombre -eq 1) {
+    Write-Host "Un!"
+}
+
+Write-Host "Fini!"
+
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\If.ps1" result="
+Entrez un nombre de 1 à 3...: 1
+Un!
+Fini!" />
+
+</TabItem>
+</Tabs>
+
+
+#### Sélection à deux branches (*If...Else*)
+
+Dans sa variable à deux branche, on déclare un deuxième bloc de code à l'aide de l'instruction `else`. C'est le code qui sera exécuté uniquement si la condition est évaluée `false`.
+
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
+
+if ($nombre -eq 1) {
+    Write-Host "Un!"
+}
+else {
+    Write-Host "Autre!"
+}
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\IfElse.ps1" result="
+Entrez un nombre de 1 à 3...: 2
+Autre!
+Fini!" />
+
+</TabItem>
+</Tabs>
+

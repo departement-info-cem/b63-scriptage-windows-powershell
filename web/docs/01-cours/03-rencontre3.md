@@ -343,3 +343,17 @@ Il existe quatre grands types de structures de contrôle:
 #### Sélection à une branche (*If*)
 
 La structure `If` permet une sélection de code conditionnelle. Dans sa variante à une branche, on pose une condition booléenne; si la condition est vraie, le code spécifié entre accolades sera exécuté, autrement il sera ignoré.
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
+
+if ($nombre -eq 1) {
+    Write-Host "Un!"
+}
+
+Write-Host "Fini!"
+
+```

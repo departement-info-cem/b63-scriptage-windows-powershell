@@ -197,110 +197,106 @@ Voici quelques caractères spéciaux qui doivent être spécifiés à l'aide du 
 | \`f | 0x0C | 12 | Caractère de saut de page (pour les imprimantes) |
 
 
+Le caractère *Backtick* agit également de caractère d'échappement, c'est-à-dire que tout caractère qui le suit dans une chaîne de caractères est interprété comme un caractère normal, sans égard à son utilité normale.
 
-### Configuration
+| Caractère | Hex. | Déc. | Description |
+| -- | -- | -- | -- |
+| \`\` | 0x60 | 96 | Le caractère *backtick* (accent grave) |
+| \`" | 0x22 | 34 | Le guillemet double |
+| \`' | 0x27 | 39 | Le guillemet simple |
+| \`# | 0x23 | 35 | Le carré (pour marquer les commentaires) |
+| \`$ | 0x24 | 36 | Le signe de piastre (pour marquer les variables) |
 
-Je vous recommande d'activer le thème de couleur "PowerShell ISE", car il est optimisé pour PowerShell. Mais s'il ne vous plait pas, vous pouvez en essayer d'autres, et même en installer de nouveaux.
-
-![image](./assets/r03/r05_06k.png)
-
-Ajustez les paramètres de VS Code. Vous pouvez explorer les paramètres disponibles, mais voici minimalement ceux que je vous recommande:
-
-Copiez-collez ceci dans le fichier settings.json, et sauvegardez-le.
-
-```json
-{
-    "powershell.codeFormatting.preset": "Stroustrup",
-    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
-    "powershell.codeFormatting.useCorrectCasing": true,
-    "powershell.integratedConsole.focusConsoleOnExecute": false,
-
-    "[powershell]": {
-        "files.encoding": "utf8bom",
-        "editor.suggestSelection": "first",
-        "editor.tabCompletion": "on",
-        "editor.codeLens": false
-    },
-
-    "workbench.colorTheme": "PowerShell ISE"   
-}
-```
-
-
-## Les structures de contrôle
-
-A priori, les instructions contenues dans un fichier de script dont exécutées dans un ordre séquentiel, que l'on appelle le **flot de contrôle** (*control flow*). Les structures de contrôle sont des instructions qui permettent de dévier le flot de contrôle et ainsi rendre le programme dynamique.
-
-Il existe quatre grands types de structures de contrôle:
-- La **sélection**, qui permet d'ignorer des instructions sous certaines conditions;
-- La **répétition**, qui permet de revenir en arrière et répéter une instruction ou un ensemble d'instructions plusieurs fois en boucle;
-- Le **sous-programme**, qui permet d'interrompre le cours normal du programme et d'exécuter du code déclaré ailleurs;
-- Le **déplacement**, qui permet de se "déplacer" ailleurs dans le code. Ce type de structure de contrôle est jugée désuète dans de nombreux langages de programmation, y compris PowerShell.
-
-
-### Les structures de sélection
-
-#### Sélection à une branche (*If*)
-
-La structure `If` permet une sélection de code conditionnelle. Dans sa variante à une branche, on pose une condition booléenne; si la condition est vraie, le code spécifié entre accolades sera exécuté, autrement il sera ignoré.
-
-<Tabs>
-<TabItem value="code" label="Code">
+Finalement, le caractère *Backtick* peut aussi être utilisé pour couper une ligne en deux.
 
 ```powershell
-[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
-
-if ($nombre -eq 1) {
-    Write-Host "Un!"
-}
-
-Write-Host "Fini!"
-
+Copy-Item -Path "C:\Minou\miaou.txt" `
+          -Destination "C:\Pitou\wouf.txt" `
+          -Force
 ```
 
-</TabItem>
-<TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\If.ps1" result="
-Entrez un nombre de 1 à 3...: 1
-Un!
-Fini!" />
+:::tip
 
-</TabItem>
-</Tabs>
+Ce caractère est difficile à trouver sur certains clavier, dont celui qui est le plus commun au Québec. Sur ce clavier (celui où on presse sur la touche de l'accent grave puis sur celle de la lettre), il suffit de faire un "espace accent grave".
+
+![image](./assets/r03/r05_05a.png)
+
+:::
 
 
-#### Sélection à deux branches (*If...Else*)
+## Visual Studio Code
 
-Dans sa variable à deux branche, on déclare un deuxième bloc de code à l'aide de l'instruction `else`. C'est le code qui sera exécuté uniquement si la condition est évaluée `false`.
+Les scripts PowerShell sont des fichiers texte, il est donc parfaitement possible de les développer à l'aide de n'importe quel éditeur de texte (le bloc-notes, Notepad++, Nano, etc.)
+
+Celui que nous utiliserons dans ce cours est [**Visual Studio Code**](https://code.visualstudio.com/), un environnement intégré de développement (IDE) gratuit en *open-source* développé par Microsoft. Il possède de nombreuses fonctionnalités pour aider les programmeurs à écrire, gérer et tester leur code. Il supporte de nombreux langages de programmation, dont PowerShell. C'est cet outil de développement que vous utiliserez tout au long de ce cours.
+
+![image](./assets/r03/r05_06a.png)
 
 
-<Tabs>
-<TabItem value="code" label="Code">
+:::info
+Il existe d'autres logiciels que vous êtes libres d'explorer. Vous connaissez peut-être [**Windows PowerShell ISE**](https://learn.microsoft.com/fr-ca/powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-5.1), qui est inclus dans Windows. Bien qu'il ne soit pas aussi avancé que VS Code sur plusieurs aspects, il peut s'avérer utile lorsque vous devez développer ou modifier un script à la volée sur un serveur, sans vouloir installer un logiciel. Vous pouvez le démarrer par le menu Démarrer, ou encore en lançant la commande `PowerShell_ISE.exe`. Notez cependant que Windows PowerShell ISE ne supporte pas les versions de PowerShell plus récentes; son support se termine à la version 5.1.  Microsoft a cessé d'améliorer ce logiciel au profit de Visual Studio Code, qui est désormais considéré par Microsoft comme l'environnement de développement "officiel" pour PowerShell.
 
-```powershell
-[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
+Parmi les autres environnements populaires, il y a [**Idera PowerShell Plus**](https://www.idera.com/productssolutions/freetools/powershellplus/), principalement orienté vers les administrateurs de bases de données, et [**SAPIEN PowerShell Studio**](https://www.sapien.com/software/powershell_studio), qui se démarque par de nombreuses fonctionnalités dont un éditeur d'interfaces graphiques, un compilateur intégré, et plusieurs accélérateurs, mais qui coûte assez cher (250$ US par année ou 25$ US par mois).
+:::
 
-if ($nombre -eq 1) {
-    Write-Host "Un!"
-}
-else {
-    Write-Host "Autre!"
-}
+### Espace de travail (*workspace*)
 
-Write-Host "Fini!"
-```
+Il est idéal de travailler dans VS Code en y ouvrant un dossier. Vous pouvez le faire soit en cliquant sur Ouvrir le dossier dans l'interface de VS Code, soit 
 
-</TabItem>
-<TabItem value="resultat" label="Résultat">
+![image](./assets/r03/r05_06b.png)
 
-<PowerShellWindow workdir="C:\Scripts" command=".\IfElse.ps1" result="
-Entrez un nombre de 1 à 3...: 2
-Autre!
-Fini!" />
+Dans le panneau de gauche, vous pouvez voir tous vos fichiers et dossiers et les ouvrir dans les onglets. Vous pouvez-même ouvrir plusieurs fichiers côte à côte.
 
-</TabItem>
-</Tabs>
+![image](./assets/r03/r05_06c.png)
+
+
+### Palette de commandes
+
+Vous pouvez ouvrir la palette de commandes en appuyant sur la touche F1 ou Ctrl+Maj+P. Vous pouvez rechercher des fonctionnalités et des actions.
+
+![image](./assets/r03/r05_06d.png)
+
+
+### Terminal intégré et exécution PowerShell
+
+Lorsque vous avez un fichier .PS1 ouvert, le terminal intégré PowerShell démarre automatiquement.
+
+Vous pouvez utiliser ce terminal de la même manière qu'une invite PowerShell standard.
+
+Si vous sélectionnez une partie de votre code et appuyez sur la touche F8, ce code sera automatiquement passé dans le terminal.
+
+![image](./assets/r03/r05_06e.png)
+
+
+Pour lancer le script facilement, appuyez simplement sur F5. Cela exécute le script dans le terminal intégré en mode débogage.
+
+![image](./assets/r03/r05_06f.png)
+
+
+Pour automatiquement sélectionner toutes les occurrences d'un même mot (par exemple, pour changer le nom d'une variable partout à la fois), sélectionner le texte à remplacer puis faites Ctrl+F2 (ou clic droit, Modifier toutes les occurrences).
+
+![image](./assets/r03/r05_06g.png)
+
+
+### Installation
+
+Dans les laboratoires du Collège, VS Code est déjà installé et configuré pour le développement de scripts en PowerShell. Si vous souhaitez l'utiliser sur votre ordinateur personnel ou sur une machine virtuelle, suivez ces directives.
+
+Téléchargez l'application sur le site officiel (https://code.visualstudio.com/). Il en existe plusieurs variantes:
+- Stable build: c'est la version la plus stable, et celle que vous devriez utiliser.
+- Insider build: c'est une préversion pour tester les nouvelles fonctionnalités. Il peut y avoir des bogues.
+
+Choisissez l'installateur qui convient à vos besoin.
+
+- User Installer: c'est l'option par défaut. VS Code s'installe dans votre profil utilisateur, donc vous n'avez pas besoin de droits d'administration. Il sera installé seulement pour vous, pas pour les autres utilisateurs.
+- System Installer: pour installer VS Code pour tous les utilisateurs du système. Ça prend des droits d'administration.
+
+![image](./assets/r03/r05_06h.png)
+
+Puis, lancez l'installateur et répondez aux questions. Assurez-vous de déposer une icône sur le bureau et d'enregistrer les actions au menu contextuel.
+
+![image](./assets/r03/r05_06i.png)
 
 
 

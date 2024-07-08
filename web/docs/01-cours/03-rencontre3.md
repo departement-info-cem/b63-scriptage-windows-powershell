@@ -367,3 +367,35 @@ Write-Host "Fini!"
 </Tabs>
 
 
+#### Sélection à deux branches (*If...Else*)
+
+Dans sa variable à deux branche, on déclare un deuxième bloc de code à l'aide de l'instruction `else`. C'est le code qui sera exécuté uniquement si la condition est évaluée `false`.
+
+
+<Tabs>
+<TabItem value="code" label="Code">
+
+```powershell
+[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
+
+if ($nombre -eq 1) {
+    Write-Host "Un!"
+}
+else {
+    Write-Host "Autre!"
+}
+
+Write-Host "Fini!"
+```
+
+</TabItem>
+<TabItem value="resultat" label="Résultat">
+
+<PowerShellWindow workdir="C:\Scripts" command=".\IfElse.ps1" result="
+Entrez un nombre de 1 à 3...: 2
+Autre!
+Fini!" />
+
+</TabItem>
+</Tabs>
+

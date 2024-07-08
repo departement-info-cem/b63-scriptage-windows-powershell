@@ -586,7 +586,7 @@ Fini!" />
 </TabItem>
 </Tabs>
 
-:::warn
+:::caution
 
 La différence entre les boucles *While* et *Do...While* est subtile mais importante. Dans le cas de la boucle *While*, la condition est évaluée **avant** le premier tour de boucle. Donc il est possible que le code de la boucle ne soit exécuté aucune fois. À l'inverse, la condition de la boucle *Do...While* est évaluée après le premier tour; on a donc la certitude que le code de la boucle sera exécuté au moins une fois, même si la condition initiale ne le permettrait pas. Choisissez donc le type de boucle qui répond le mieux à votre besoin.
 

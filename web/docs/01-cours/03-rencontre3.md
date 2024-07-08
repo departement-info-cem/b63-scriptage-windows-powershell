@@ -347,15 +347,21 @@ La structure `If` permet une sélection de code conditionnelle. Dans sa variante
 <Tabs>
 <TabItem value="code" label="Code">
 
+```powershell
+[int] $nombre = Read-Host "Entrez un nombre de 1 à 3..."
 
+if ($nombre -eq 1) {
+    Write-Host "Un!"
+}
+
+Write-Host "Fini!"
+
+```
 
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\If.ps1" result="
-Entrez un nombre de 1 à 3...: 1
-Un!
-Fini!" />
+
 
 </TabItem>
 </Tabs>

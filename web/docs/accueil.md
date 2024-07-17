@@ -28,7 +28,7 @@ Je suis Gabriel Gaudreault, votre enseignant, vous pouvez me rejoindre facilemen
 | 27 Juin 2024 - [Séance #1](cours/01)        | Plan de cours, introduction à Powershell       | Mini-Exercice #1, Exercices 01A et 01B |
 | 4 juillet 2024 - [Séance #2](cours/02)      | Fondements de PowerShell                       | Mini-Exercice #2, Exercices 02A et 02B |
 | 8 juillet 2024 - [Séance #3](cours/03)      | Scripts, structures de contrôle et de données  | Mini-Exercice #3, Exercices 03A et 03B, **Début du [TP#1](tp/tp1)** |
-| 18 juillet 2024 - [Séance #4](cours/rencontre4)     | Paramètres, fonctions, fichiers et journalisation | Mini-Exercice #4, Exercices 04A et 04, **ÉCHÉANCE TP#1** |
+| 18 juillet 2024 - [Séance #4](cours/04)     | Paramètres, fonctions, fichiers et journalisation | Mini-Exercice #4, Exercices 04A et 04, **ÉCHÉANCE TP#1** |
 | 5 août 2024 - [Séance #5](cours/rencontre5)         | Gestion des comptes                            | Mini-Exercice #5, Exercices 05A et 05B |
 | 7 août 2024 - [Séance #6](cours/rencontre6)         | **Évaluation Intra**                           | Temps accordé à l'intra                |
 | 8 août 2024 - [Séance #7](cours/rencontre7)         | Retour sur l'évaluation et registre            | Exercice 06A et 06B, **Début du [TP#2](tp/tp2)** |

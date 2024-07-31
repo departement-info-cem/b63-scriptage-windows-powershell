@@ -16,8 +16,6 @@ import TabItem from '@theme/TabItem';
 1. Rappel du cours précédent
 1. Gestion des comptes locaux
 1. Gestion des comptes de domaine
-1. Git
-1. Présentation du TP1
 
 </TabItem>
 

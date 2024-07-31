@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # Rencontre 4 - Paramètres, fonctions, fichiers et strings
 
-:::note Résumé de la séance du jeudi 18 juillet 2024
+:::note Résumé de la séance du lundi 5 août 2024
 
 <Tabs>
 

@@ -1,5 +1,5 @@
 ---
-title: R04 - R04 - Paramètres, fonctions, fichiers et strings
+title: R04 - Paramètres, fonctions, fichiers et strings
 slug: "04"
 draft: false
 ---

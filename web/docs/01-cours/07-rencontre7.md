@@ -61,13 +61,13 @@ Voici les principaux providers
 
 Les **lecteurs PowerShell** (*PSDrive*) sont des points d'entrée vers une ressource gérée par un *PSProvider*. Par exemple, les lecteurs C: et D: sont des lecteurs contenant un système de fichiers, accessible via le fournisseur *FileSystem*.
 
-![Get-PSDrive](./assets/r08/get-psdrive.png)
+![Get-PSDrive](./assets/r07/get-psdrive.png)
 
 Plusieurs commandes PowerShell adoptent un comportement différent en fonction du fournisseur duquel le chemin spécifié est issu. 
 
 Dans l'exemple ci-dessous, on peut voir que le type d'élément retourné par `Get-ChildItem` est différent selon que le lecteur spécifié en est un exposé par le fournisseur `FileSystem` ou par le fournisseur `Environment` (qui contient les variables d'environnement).
 
-![Get-PSDrive](./assets/r08/gci-provider.png)
+![Get-PSDrive](./assets/r07/gci-provider.png)
 
 
 
@@ -84,14 +84,14 @@ L'éditeur de registre (regedit.exe) est un outil intégré à Windows qui perme
 
 Le registre de Windows est composé de deux types d'éléments: les **clés** (*keys*) et les **valeurs** (*values*).
 
-![](./assets/r08/registre_cles-val.png)
+![](./assets/r07/registre_cles-val.png)
 
 
 ### Clés
 
 Les **clés** sont des conteneurs, un peu comme les répertoires dans un système de fichiers. Elles peuvent contenir des valeurs ainsi que d'autres clés (qu'un appellera sous-clés, ou *subkeys*). Les premières clés, situées au premier niveau de l'arborescence, sont appelés des **clés de ruche** (*hive key*) ou des **clés racine** (*root key*) et ont pour préfixe HKEY_ (un diminutif de *hive key*).
 
-![](./assets/r08/registre_cles.png)
+![](./assets/r07/registre_cles.png)
 
 
 ### Valeurs
@@ -100,7 +100,7 @@ Les **valeurs** sont des éléments porteurs de données utilisables. Ils sont c
 
 Chaque valeur de registre est contenue dans une clé et possède trois attributs: un **nom**, un **type** et une **donnée**.
 
-![](./assets/r08/registre_val.png)
+![](./assets/r07/registre_val.png)
 
 Les données inscrite dans une clé doivent être d'un type précis. Voici les principaux types de données admissibles pour une valeur de registre:
 
@@ -197,17 +197,17 @@ On peut facilement lire et écrire des informations dans le registre de Windows 
 
 On obtient la liste des sous-clé d'une clé avec la commande `Get-ChildItem`.
 
-![](./assets/r08/reg_subkey1.png)
+![](./assets/r07/reg_subkey1.png)
 
 Pour voir seulement la liste des clés, sans montrer aussi les valeurs qui y sont contenues, on peut ajouter le *switch* `-Name`.
 
-![](./assets/r08/reg_subkey2.png)
+![](./assets/r07/reg_subkey2.png)
 
 ### Tester si une clé existe
 
 Pour tester si une clé existe, c'est très simple: il suffit d'utiliser `Test-Path`.
 
-![](./assets/r08/reg_testkey.png)
+![](./assets/r07/reg_testkey.png)
 
 
 ### Créer une clé
@@ -218,7 +218,7 @@ Pour créer une nouvelle clé, on peut utiliser la commande `New-Item`.
 New-Item -Path "HKCU:\SOFTWARE\MaNouvelleClé"
 ```
 
-![](./assets/r08/reg_newkey1.png)
+![](./assets/r07/reg_newkey1.png)
 
 Pour que ça fonctionne, la clé parente doit exister. On peut cependant spécifier le switch `-Force` pour que l'arborescence de clé soit automatiquement créée.
 
@@ -226,7 +226,7 @@ Pour que ça fonctionne, la clé parente doit exister. On peut cependant spécif
 New-Item -Path "HKCU:\SOFTWARE\UneClé\UneSousClé\UneSousSousClé" -Force
 ```
 
-![](./assets/r08/reg_newkey2.png)
+![](./assets/r07/reg_newkey2.png)
 
 ### Effacer une clé
 
@@ -236,7 +236,7 @@ Pour effacer une clé, il suffit d'utiliser la commande `Remove-Item`.
 Remove-Item -Path "HKCU:\SOFTWARE\MaNouvelleClé"
 ```
 
-![](./assets/r08/reg_delkey.png)
+![](./assets/r07/reg_delkey.png)
 
 Si cette clé contient des sous-clés, on peut spécifier le switch `-Recurse` pour effacer récursivement toutes les sous-clés.
 
@@ -250,19 +250,19 @@ Remove-Item -Path "HKCU:\SOFTWARE\UneClé" -Recurse
 
 Pour obtenir toutes les valeurs dans une certaine clé, on peut utiliser la commande `Get-ItemProperty`.
 
-![](./assets/r08/reg_val1.png)
+![](./assets/r07/reg_val1.png)
 
 Pour obtenir une valeur spécifique, on peut utiliser la commande `Get-ItemPropertyValue` en spécifiant la clé comme chemin et le nom de la valeur.
 
-![](./assets/r08/reg_val2.png)
+![](./assets/r07/reg_val2.png)
 
 Il existe plusieurs autres manières d'obtenir les données dans une valeur de registre. Voici quelques autres exemples:
 
-![](./assets/r08/reg_val3.png)
+![](./assets/r07/reg_val3.png)
 
 On peut aussi utiliser la méthode `.GetValue()` d'une clé, comme le montre l'exemple ci-dessous:
 
-![](./assets/r08/reg_val4.png)
+![](./assets/r07/reg_val4.png)
 
 
 ### Tester si une valeur existe
@@ -306,7 +306,7 @@ else {
 :::tip
 Si la clé n'existe pas, Get-ItemProperty retournera une erreur. Pour masquer cette erreur, on peut spécifier `-ErrorAction SilentlyContinue`
 
-![](./assets/r08/reg_testval_error.png)
+![](./assets/r07/reg_testval_error.png)
 :::
 
 
@@ -375,7 +375,7 @@ New-ItemProperty @NewRegValSplat
 
 Pour effacer une valeur de registre, on peut utiliser la commande `Remove-ItemProperty`.
 
-![](./assets/r08/reg_delval.png)
+![](./assets/r07/reg_delval.png)
 
 
 ## Streams
@@ -414,19 +414,19 @@ Le stream Output est tout simplement le pipeline PowerShell que vous connaissez 
 
 Le stream Error est le "pipeline" sur lequel les erreurs circulent. Les objets circulant dans ce stream sont ultimement convertis en texte pour son affichage dans la console, mais ce texte est formaté en rouge avec des informations sur l'erreur. 
 
-![](./assets/r08/stream_error01.png)
+![](./assets/r07/stream_error01.png)
 
 On peut produire des erreurs avec la commande `Write-Error`.
 
-![](./assets/r08/stream_error02.png)
+![](./assets/r07/stream_error02.png)
 
 Il est possible de cacher ou ignorer les erreurs et spécifiant à une commande une action en cas d'erreur. Par exemple, `-ErrorAction SilentlyContinue` fait en sorte que la sortie de ce stream ne sera pas affichée.
 
-![](./assets/r08/stream_error03.png)
+![](./assets/r07/stream_error03.png)
 
 On peut aussi le faire globalement en modifiant la variable `$ErrorActionPreference`. Par défaut, l'action en cas d'erreur est "Continue", mais vous pouvez la changer pour "SilentlyContinue" pour que toutes les erreurs n'apparaissent pas dans la console. Notez que cette variable ne sera modifiée que pour la session PowerShell en cours.
 
-![](./assets/r08/stream_error04.png)
+![](./assets/r07/stream_error04.png)
 
 
 :::info
@@ -446,24 +446,24 @@ Voici les valeurs d'action supportées pour les erreurs. Ces actions sont sensib
 
 Ce stream est utilisé pour écrire des messages d'avertissement à l'utilisateur. On pourrait le faire à l'aide de Write-Host, mais le stream Warning offre la même fonctionnalité que celui des erreurs: par le paramètre `-WarningAction` ou une changement à la variable `$WarningPreference`, qui est par défaut à "Continue", on peut modifier le comportement en cas d'avertissement. Ainsi, en spécifiant l'action "SilentlyContinue", les avertissements seront masqués.
 
-![](./assets/r08/stream_warning01.png)
+![](./assets/r07/stream_warning01.png)
 
 
 ### Stream 4: Verbose
 
 Ce stream est utilisé pour écrire des messages détaillés, si l'utilisateur le souhaite. La commande pour y envoyer des messages est `Write-Verbose`. Les messages passés dans ce stream sont masqués par défaut, ce qui laisse l'impression que la commande ne fait rien. Comme pour les autres streams, il existe une variable qui contrôle si le message est affiché ou non. Dans le cas du stream Verbose, cette variable est `$VerbosePreference` et sa valeur par défaut est "SilentlyContinue". On peut la changer à "Continue" pour que l'affichage de ce stream soit envoyé dans la console.
 
-![](./assets/r08/stream_verbose01.png)
+![](./assets/r07/stream_verbose01.png)
 
 On n'utilisera pas vraiment cette technique, par contre. La raison pour laquelle on souhaiterait utiliser la commande Write-Verbose dans un script est pour afficher des messages détaillés optionnels, et permettre à l'utilisateur qui appelle le script de spécifier en paramètre s'il veut afficher ces messages. PowerShell offre un mécanisme pour ça.
 
 Tout d'abord, on doit "transformer" le script en cmdlet. PowerShell ajoute à toutes les commandes un certain nombre de paramètres: ce sont les **paramètres communs**. Simplement en ajoutant la mention `[CmdletBinding()]` au début du script, juste avant le bloc `param()`, le script ou la fonction importera ces paramètres communs.
 
-![](./assets/r08/stream_cmdletbinding01.png)
+![](./assets/r07/stream_cmdletbinding01.png)
 
 Un des paramètres commun est le switch `-Verbose`, et lorsqu'on le spécifie, a pour effet d'activer la verbose pour le script.
 
-![](./assets/r08/stream_verbose02.png)
+![](./assets/r07/stream_verbose02.png)
 
 
 :::tip

@@ -31,8 +31,8 @@ Je suis Gabriel Gaudreault, votre enseignant, vous pouvez me rejoindre facilemen
 | ~~18 juillet 2024~~ 5 août 2024 - [Séance #4](cours/04)     | Paramètres, fonctions, fichiers et journalisation | Exercices 04A, 04B, 04C et 04D **ÉCHÉANCE TP#1 (Toujours pour le 18 juillet 2024)** |
 | ~~5 août 2024~~ 7 août 2024 - [Séance #5](cours/05)         | Gestion des comptes                            | Mini-Exercice #5, Exercices 05A et 05B |
 | ~~7 août 2024~~ 8 août 2024 - [Séance #6](cours/06)         | **Évaluation Intra**                           | Temps accordé à l'intra                |
-| 8 août 2024 - [Séance #7](cours/rencontre7)         | Retour sur l'évaluation et registre            | Exercice 06A et 06B, **Début du [TP#2](tp/tp2)** |
-| 12 août 2024 - [Séance #8](cours/rencontre8)        | Révision générale en vue de l'évaluation finale   | Temps accordé pour terminer les travaux et les laboratoires |
+| 8 août 2024 - [Séance #7](cours/07)         | Retour sur l'évaluation et registre            | Exercice 07 |
+| 12 août 2024 - [Séance #8](cours/rencontre8)        | Révision générale en vue de l'évaluation finale   | Temps accordé pour le **[TP#2](tp/tp2)** |
 | 19 août 2024 - [Séance #9](cours/rencontre9)        | **Évaluation finale**                          | **ÉCHÉANCE TP#2** |
 
 </Column>

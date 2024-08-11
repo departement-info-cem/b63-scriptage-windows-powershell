@@ -171,7 +171,7 @@ La clé `.DEFAULT` représente le profil utilisateur du compte SYSTEM, et les au
 
 La ruche de l'utilisateur courant est accessible par `HKEY_CURRENT_USER`.
 
-![](./assets/r08/hku.png)
+![](./assets/r07/hku.png)
 
 
 #### HKEY_CLASSES_ROOT (HKCR)

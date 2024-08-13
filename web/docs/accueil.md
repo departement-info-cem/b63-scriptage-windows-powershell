@@ -32,8 +32,8 @@ Je suis Gabriel Gaudreault, votre enseignant, vous pouvez me rejoindre facilemen
 | ~~5 août 2024~~ 7 août 2024 - [Séance #5](cours/05)         | Gestion des comptes                            | Mini-Exercice #5, Exercices 05A et 05B |
 | ~~7 août 2024~~ 8 août 2024 - [Séance #6](cours/06)         | **Évaluation Intra**                           | Temps accordé à l'intra                |
 | ~~8 août 2024~~ 12 août 2024 - [Séance #7](cours/07)         | Retour sur l'évaluation et registre            | Exercice 07 |
-| ~~12 août 2024~~ 19 août 2024 - [Séance #8](cours/rencontre8)        | Révision générale en vue de l'évaluation finale   | Temps accordé pour le **[TP#2](tp/tp2)** |
-| ~~19 août 2024~~ - [Séance #9](cours/rencontre9)        | **Évaluation finale**                          | **ÉCHÉANCE TP#2** |
+| ~~12 août 2024~~ 13 août 2024 - [Séance #8](cours/08)        | Révision générale en vue de l'évaluation finale   | Temps accordé pour le **[TP#2](tp/tp2)** |
+| 19 août 2024 - [Séance #9](cours/09)        | **Évaluation finale**                          | **ÉCHÉANCE TP#2** |
 
 </Column>
 

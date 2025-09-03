@@ -28,14 +28,14 @@ Je suis **Vincent Carrier**, votre professeur pour ce cours. Vous pouvez me join
 | Cours                            | Contenu                                          | Activités                                                            |
 | -------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------- |
 | [S01<br/>3&nbsp;sept.](cours/1)  | Introduction à PowerShell, commandes, objets     | Montage du lab;<br/>Exercices commandes                              |
-| [S02<br/>9&nbsp;sept.](cours/2)  | Pipeline, tableaux, *one-liners*                 | Exercices pipelines;<br/>Début du TP1                                |
-| [S03<br/>16&nbsp;sept.](cours/3) | Travail sur le TP1<br/>*(aucune théorie)*        | Période réservée pour le TP1<br/>(remise au prochain cours)          |
-| [S04<br/>17&nbsp;sept](cours/4)  | Scripts, algorithmie, structures de contrôle     | Test de mi-étape (1h);<br/>Exercices scripts;<br/>Traces d'exécution |
-| [S05<br/>23&nbsp;sept.](cours/5) | Paramètres, structures de données, fonctions     | Exercices paramètres de scripts;<br/>Fonction de journalisation      |
-| [S06<br/>30&nbsp;sept.](cours/6) | AD, fournisseurs, registre, WMI                  | Exercices AD, registre et WMI;<br/>Début du TP2                      |
-| [S07<br/>7&nbsp;oct.](cours/7)   | Travail sur le TP2<br/>*(aucune théorie)*        | Période réservée pour le TP2;<br/>Remise juste avant l'examen final  |
-| [S08<br/>14&nbsp;oct.](cours/8)  | Simulation d'examen final<br/>*(aucune théorie)* | Examen formatif, dans les mêmes conditions que le vrai examen.       |
-| [S09<br/>21&nbsp;oct.](cours/9)  | **Évaluation finale**<br/>*(aucune théorie)*     | Examen final sommatif.                                               |
+| S02<br/>9&nbsp;sept. | Pipeline, tableaux, *one-liners*                 | Exercices pipelines;<br/>Début du TP1                                |
+| S03<br/>16&nbsp;sept. | Travail sur le TP1<br/>*(aucune théorie)*        | Période réservée pour le TP1<br/>(remise au prochain cours)          |
+| S04<br/>17&nbsp;sept  | Scripts, algorithmie, structures de contrôle     | Test de mi-étape (1h);<br/>Exercices scripts;<br/>Traces d'exécution |
+| S05<br/>23&nbsp;sept. | Paramètres, structures de données, fonctions     | Exercices paramètres de scripts;<br/>Fonction de journalisation      |
+| S06<br/>30&nbsp;sept. | AD, fournisseurs, registre, WMI                  | Exercices AD, registre et WMI;<br/>Début du TP2                      |
+| S07<br/>7&nbsp;oct.   | Travail sur le TP2<br/>*(aucune théorie)*        | Période réservée pour le TP2;<br/>Remise juste avant l'examen final  |
+| S08<br/>14&nbsp;oct.  | Simulation d'examen final<br/>*(aucune théorie)* | Examen formatif, dans les mêmes conditions que le vrai examen.       |
+| S09<br/>21&nbsp;oct.  | **Évaluation finale**<br/>*(aucune théorie)*     | Examen final sommatif.                                               |
 
 </Column>
 

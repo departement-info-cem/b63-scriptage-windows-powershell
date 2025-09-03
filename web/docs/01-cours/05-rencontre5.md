@@ -1,7 +1,7 @@
 ---
-title: R05 - Gestion des comptes
-slug: "05"
-draft: false
+title: 5 - Gestion des comptes
+slug: "5"
+draft: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -70,18 +70,19 @@ On peut utiliser PowerShell pour contrôler les utilisateurs locaux, les groupes
 
 La commande Get-LocalUser permet d'obtenir la liste des utilisateurs locaux. Elle retourne un ou plusieurs objets de types `[Microsoft.PowerShell.Commands.LocalUser]` qui décrivent un compte utilisateur local.
 
-<PowerShellWindow workdir="C:\" command="Get-LocalUser" result="
+```PS C:\> Get-LocalUser
 Name               Enabled Description 
 ----               ------- -----------
 Administrateur     True    Compte d’utilisateur d’administration
 DefaultAccount     False   Compte utilisateur géré par le système.
 Invité             False   Compte d’utilisateur invité
 paul               True    Boss de la compagnie
-WDAGUtilityAccount False   Compte d’utilisateur géré et utilisé par le syst..."/>
+WDAGUtilityAccount False   Compte d’utilisateur géré et utilisé par le syst...
+```
 
 Ces objets possèdent plusieurs informations sur le compte utilisateur. On peut les voir en explorant la structure de l'objet, par exemple avec `Select-Object *`.
 
-<PowerShellWindow workdir="C:\" command="Get-LocalUser -Name 'paul' | Select-Object *" result="
+```PS C:\> Get-LocalUser -Name 'paul' | Select-Object *
 AccountExpires         : 2023-05-12 20:06:27
 Description            : Boss de la compagnie
 Enabled                : True
@@ -95,7 +96,8 @@ LastLogon              :
 Name                   : paul
 SID                    : S-1-5-21-3297567932-2200011671-69726474-1001
 PrincipalSource        : Local
-ObjectClass            : Utilisateur"/>
+ObjectClass            : Utilisateur
+```
 
 
 ### Création d'un nouvel utilisateur
@@ -156,7 +158,7 @@ Pour créer un groupe local, on utilise la commande `New-LocalGroup`. Là encore
 
 Pour obtenir les membres d'un groupe, on peut utiliser la commande `Get-LocalGroupMember`.
 
-<PowerShellWindow workdir="C:\" command="Get-LocalGroupMember -Group 'Administrateurs'" result="
+```PS C:\> Get-LocalGroupMember -Group 'Administrateurs'
 ObjectClass Name                    PrincipalSource
 ----------- ----                    ---------------
 Utilisateur PC0001\Administrateur   Local
@@ -164,7 +166,8 @@ Utilisateur PC0001\bob              Local
 Utilisateur PC0001\paul             Local
 Utilisateur PC0001\pierre           Local
 Groupe      MINOU\Admins du domaine ActiveDirectory
-Utilisateur MINOU\paul.meilleur     ActiveDirectory"/>
+Utilisateur MINOU\paul.meilleur     ActiveDirectory
+```
 
 Pour ajouter un utilisateur dans un groupe, on utilise la commande `Add-LocalGroupMember`. Cette commande prend en paramètre `-Member` qui désigne le membre à ajouter, ainsi que `-Group` qui désigne le groupe dans lequel l'ajouter.
 

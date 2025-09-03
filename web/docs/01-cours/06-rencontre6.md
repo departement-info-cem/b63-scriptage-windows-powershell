@@ -1,7 +1,7 @@
 ---
-title: R06 - Examen intra
-slug: "06"
-draft: false
+title: 6 - Examen intra
+slug: "6"
+draft: true
 ---
 
 import Tabs from '@theme/Tabs';

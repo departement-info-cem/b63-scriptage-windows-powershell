@@ -1,7 +1,7 @@
 ---
-title: R04 - Paramètres, fonctions, fichiers et strings
-slug: "04"
-draft: false
+title: 4 - Paramètres, fonctions, fichiers et strings
+slug: "4"
+draft: true
 ---
 
 import Tabs from '@theme/Tabs';

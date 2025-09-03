@@ -1,7 +1,7 @@
 ---
-title: R02 - Fondements de PowerShell
-slug: "02"
-draft: false
+title: 2 - Fondements de PowerShell
+slug: "2"
+draft: true
 ---
 
 import Tabs from '@theme/Tabs';

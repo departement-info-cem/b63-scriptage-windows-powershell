@@ -1,7 +1,7 @@
 ---
-title: R08 - Travail Pratique 2
-slug: "08"
-draft: false
+title: 8 - Travail Pratique 2
+slug: "8"
+draft: true
 ---
 
 import Tabs from '@theme/Tabs';

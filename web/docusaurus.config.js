@@ -67,15 +67,33 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "cours/accueil",
+            docId: "cours/rencontre1",
             position: "left",
             label: "Cours 🧑🏻‍🏫",
           },
           {
+            label: "Exercices 💻",
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "exercices",
+          },
+          /**{
+            label: "Solutions ✅",
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "solutions",
+          },*/
+          /**{
+            label: "Travaux Pratiques ✏️",
             type: "docSidebar",
             position: "left",
             sidebarId: "tp",
-            label: "Travaux Pratiques ✏️",
+          },*/
+          {
+            label: "Notions 📖",
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "notions",
           },
         ],
       },

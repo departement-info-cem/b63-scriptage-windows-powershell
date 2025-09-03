@@ -1,7 +1,7 @@
 ---
-title: R03 - Dictionnaires et scripts
-slug: "03"
-draft: false
+title: 3 - Dictionnaires et scripts
+slug: "3"
+draft: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -361,10 +361,12 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\If.ps1" result="
+```
+PS C:\Scripts> .\If.ps1
 Entrez un nombre de 1 à 3...: 1
 Un!
-Fini!" />
+Fini!
+```
 
 </TabItem>
 </Tabs>
@@ -394,10 +396,12 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\IfElse.ps1" result="
+```
+PS C:\Scripts> .\IfElse.ps1
 Entrez un nombre de 1 à 3...: 2
 Autre!
-Fini!" />
+Fini!
+```
 
 </TabItem>
 </Tabs>
@@ -430,10 +434,12 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\IfElseifElse.ps1" result="
+```
+PS C:\Scripts> .\IfElseifElse.ps1
 Entrez un nombre de 1 à 3...: 2
 Deux!
-Fini!" />
+Fini!
+```
 
 </TabItem>
 </Tabs>
@@ -466,10 +472,12 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\Switch.ps1" result="
+```
+PS C:\Scripts> .\Switch.ps1
 Entrez un nombre de 1 à 3...: 2
 Deux!
-Fini!" />
+Fini!
+```
 
 </TabItem>
 </Tabs>
@@ -541,12 +549,14 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\While.ps1" result="
+```
+PS C:\Scripts> .\While.ps1
 0
 1
 2
 3
-Fini!" />
+Fini!
+```
 
 </TabItem>
 </Tabs>
@@ -576,12 +586,14 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\DoWhile.ps1" result="
+```
+PS C:\Scripts> .\DoWhile.ps1
 0
 1
 2
 3
-Fini!" />
+Fini!
+```
 
 </TabItem>
 </Tabs>
@@ -615,12 +627,14 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\DoUntil.ps1" result="
+```
+PS C:\Scripts> .\DoUntil.ps1
 0
 1
 2
 3
-Fini!" />
+Fini!
+```
 
 </TabItem>
 </Tabs>
@@ -652,12 +666,14 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\WhileTrue.ps1" result="
+```
+PS C:\Scripts> .\WhileTrue.ps1
 0
 1
 2
 3
-Fini!" />
+Fini!
+```
 
 </TabItem>
 </Tabs>
@@ -690,7 +706,8 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\For.ps1" result="
+```
+PS C:\Scripts> .\For.ps1
 0.0
 0.1
 0.2
@@ -703,7 +720,8 @@ Write-Host "Fini!"
 3.0
 3.1
 3.2
-Fini!" />
+Fini!
+```
 
 </TabItem>
 </Tabs>
@@ -741,12 +759,15 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\ForEach.ps1" result="
+```
+PS C:\Scripts> .\ForEach.ps1
 0
 1
 2
 3
-Fini!" />
+Fini!
+```
+
 </TabItem>
 </Tabs>
 
@@ -773,12 +794,15 @@ Write-Host "Fini!"
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\Scripts" command=".\ForEach-Object.ps1" result="
+```
+PS C:\Scripts> .\ForEach-Object.ps1
 0
 1
 2
 3
-Fini!" />
+Fini!
+```
+
 </TabItem>
 </Tabs>
 
@@ -836,24 +860,24 @@ $minou = @{
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
+```
+PS C:\> $minou
 Name            Value
 ----            -----
 Passion         Manger
 Nom             Garfield
-Espece          Felis catus"/>
+Espece          Felis catus
+```
 
 </TabItem>
 </Tabs>
 
 Chaque clé de cet objet est le nom d'une de ses propriétés. On peut donc accéder à une propriété avec la notation ".".
 
-<PowerShellWindow workdir="C:\" command="$minou.Passion" result="
+```
+PS C:\> $minou.Passion
 Manger
-">
-
-</PowerShellWindow>
-
+```
 
 :::tip
 Pour créer un objet *hashtable* en une seule ligne, utilisez le caractère `;` entre les éléments.
@@ -880,24 +904,14 @@ $minou = [ordered]@{
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
-Name            Value
-----            -----
-Nom             Garfield
-Espece          Felis catus
-Passion         Manger"/>
-
-
-
-<PowerShellWindow>
 ```
+PS C:\> $minou
 Name            Value
 ----            -----
 Nom             Garfield
 Espece          Felis catus
 Passion         Manger"/>
 ```
-</PowerShellWindow>
 
 </TabItem>
 </Tabs>
@@ -929,16 +943,19 @@ $minous = @(
 </TabItem>
 <TabItem value="resultat_souhaite" label="Résultat souhaité">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
+```
+PS C:\> $minou
 Nom           Espece         Passion
 ---           ------         -------
 Garfield      Felis catus    Manger
-Grumpy Cat    Felis catus    Faire la baboune" />
+Grumpy Cat    Felis catus    Faire la baboune
+```
 
 </TabItem>
 <TabItem value="resultat" label="Résultat réel">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
+```
+PS C:\> $minou
 Name            Value
 ----            -----
 Passion         Manger
@@ -946,7 +963,8 @@ Nom             Garfield
 Espece          Felis catus
 Passion         Faire la baboune
 Nom             Grumpy Cat
-Espece          Felis catus" />
+Espece          Felis catus
+```
 
 </TabItem>
 </Tabs>
@@ -972,10 +990,12 @@ $minou = [PSCustomObject]@{
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
+```
+PS C:\> $minou
 Nom           Espece         Passion
 ---           ------         -------
-Garfield      Felis catus    Manger" />
+Garfield      Felis catus    Manger
+```
 
 </TabItem>
 </Tabs>
@@ -1006,11 +1026,13 @@ $minous = @(
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\" command="$minous" result="
+```
+PS C:\> $minous
 Nom           Espece         Passion
 ---           ------         -------
 Garfield      Felis catus    Manger
-Grumpy Cat    Felis catus    Faire la baboune" />
+Grumpy Cat    Felis catus    Faire la baboune
+```
 
 </TabItem>
 </Tabs>

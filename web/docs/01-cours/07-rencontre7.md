@@ -1,7 +1,7 @@
 ---
-title: R07 - Registre et Streams
-slug: "07"
-draft: false
+title: 7 - Registre et Streams
+slug: "7"
+draft: true
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,0 +1,13 @@
+{
+    "position": 3,
+    "label": "Scripts PowerShell",
+    "collapsible": true,
+    "collapsed": false,
+    "link": {
+        "type": "doc",
+        "id": "scripts"
+    },
+    "customProps": {
+        "description": "This description can be used in the swizzled DocCard"
+    }
+}

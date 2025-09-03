@@ -11,7 +11,7 @@ hide_table_of_contents: true
 
 Bienvenue dans le cours de scriptage sous Windows. Ce cours constitue une excellente introduction aux diverses notions de scripting. Au cours des séances à venir, nous travaillerons avec PowerShell.
 
-Vous retrouverez les notes de cours dans la section **[Cours](cours/accueil)**. Quant aux TP, vous les retrouverez dans la section **[Travaux Pratiques](tp/tp1)**.
+Vous retrouverez les notes de cours dans la section **Cours**. Quant aux TP, vous les retrouverez dans la section **Travaux Pratiques**.
 
 :::info Pour me joindre
 Je suis **Vincent Carrier**, votre professeur pour ce cours. Vous pouvez me joindre facilement via **Microsoft Teams** ou **Mio** (Omnivox). 
@@ -27,7 +27,7 @@ Je suis **Vincent Carrier**, votre professeur pour ce cours. Vous pouvez me join
 
 | Cours                            | Contenu                                          | Activités                                                            |
 | -------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------- |
-| [S01<br/>3&nbsp;sept.](cours/1)  | Introduction à PowerShell, commandes, objets     | Montage du lab;<br/>Exercices commandes                              |
+| S01<br/>3&nbsp;sept.  | Introduction à PowerShell, commandes, objets     | Montage du lab;<br/>Exercices commandes                              |
 | S02<br/>9&nbsp;sept. | Pipeline, tableaux, *one-liners*                 | Exercices pipelines;<br/>Début du TP1                                |
 | S03<br/>16&nbsp;sept. | Travail sur le TP1<br/>*(aucune théorie)*        | Période réservée pour le TP1<br/>(remise au prochain cours)          |
 | S04<br/>17&nbsp;sept  | Scripts, algorithmie, structures de contrôle     | Test de mi-étape (1h);<br/>Exercices scripts;<br/>Traces d'exécution |

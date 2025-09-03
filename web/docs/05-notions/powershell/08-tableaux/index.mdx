@@ -107,11 +107,13 @@ La commande `ForEach-Object` admet un bloc de script en paramètre, qui sera ex�
 
 L’objet courant est représenté par la variable pipeline `$_` (ou alternativement, `$PSItem`).
 
+```
+PS C:\> 1..5 | ForEach-Object { Write-Host 'Numéro', $_ }
 
-<PowerShellWindow workdir="C:\" command="1..5 | ForEach-Object { Write-Host 'Numéro', $_ }" result="
 Numéro 1
 Numéro 2
 Numéro 3
 Numéro 4
-Numéro 5" />
+Numéro 5
+```
 

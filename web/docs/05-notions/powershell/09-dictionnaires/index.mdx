@@ -34,12 +34,15 @@ $minou = @{
 
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
+```
+PS C:\> $minou
+
 Name            Value
 ----            -----
 Passion         Manger
 Nom             Garfield
-Espece          Felis catus"/>
+Espece          Felis catus
+```
 
 </TabItem>
 
@@ -47,9 +50,12 @@ Espece          Felis catus"/>
 
 Chaque clé de cet objet est le nom d'une de ses propriétés. On peut donc accéder à une propriété avec la notation ".".
 
-<PowerShellWindow workdir="C:\" command="$minou.Passion" result="
+```
+PS C:\> $minou.Passion
+
 Manger
-"/>
+
+```
 
 :::tip
 Pour créer un objet *hashtable* en une seule ligne, utilisez le caractère ; entre les éléments.
@@ -76,12 +82,15 @@ $minou = [ordered]@{
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
+```
+PS C:\> $minou
+
 Name            Value
 ----            -----
 Nom             Garfield
 Espece          Felis catus
-Passion         Manger"/>
+Passion         Manger
+```
 
 </TabItem>
 </Tabs>
@@ -113,16 +122,21 @@ $minous = @(
 </TabItem>
 <TabItem value="resultat_souhaite" label="Résultat souhaité">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
+```
+PS C:\> $minou
+
 Nom           Espece         Passion
 ---           ------         -------
 Garfield      Felis catus    Manger
-Grumpy Cat    Felis catus    Faire la baboune" />
+Grumpy Cat    Felis catus    Faire la baboune
+```
 
 </TabItem>
 <TabItem value="resultat" label="Résultat réel">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
+```
+PS C:\> $minou
+
 Name            Value
 ----            -----
 Passion         Manger
@@ -130,8 +144,8 @@ Nom             Garfield
 Espece          Felis catus
 Passion         Faire la baboune
 Nom             Grumpy Cat
-Espece          Felis catus" />
-
+Espece          Felis catus
+```
 </TabItem>
 </Tabs>
 
@@ -156,10 +170,13 @@ $minou = [PSCustomObject]@{
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\" command="$minou" result="
+```
+PS C:\> $minou
+
 Nom           Espece         Passion
 ---           ------         -------
-Garfield      Felis catus    Manger" />
+Garfield      Felis catus    Manger
+```
 
 </TabItem>
 </Tabs>
@@ -190,11 +207,14 @@ $minous = @(
 </TabItem>
 <TabItem value="resultat" label="Résultat">
 
-<PowerShellWindow workdir="C:\" command="$minous" result="
+```
+PS C:\> $minous
+
 Nom           Espece         Passion
 ---           ------         -------
 Garfield      Felis catus    Manger
-Grumpy Cat    Felis catus    Faire la baboune" />
+Grumpy Cat    Felis catus    Faire la baboune
+```
 
 </TabItem>
 </Tabs>

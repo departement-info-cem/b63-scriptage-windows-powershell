@@ -24,7 +24,7 @@ Il sera composé des machines virtuelles suivantes:
 | PCDEV | Poste client | *(dynamique)* | MODELE_Win11-24H2_Education |
 
 :::tip
-Pour que vos VM soient organisées dans un même bloc dans Labinfo, ajoutez le préfixe `3T5-xx-` devant le nom des VM dans vSphere (où *xx* représente vos initiales).
+Pour que vos VM soient organisées dans un même bloc dans Labinfo, ajoutez le préfixe `B63-XX-` devant le nom des VM dans vSphere (où *XX* représente vos initiales).
 
 ![](./assets/esx-organisation.png)
 :::

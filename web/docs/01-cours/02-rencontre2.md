@@ -24,8 +24,8 @@ Le dernier exercice sur les regex est optionnel, mais recommandé si vous souhai
 ## Ressources et documentation
 
 Référez-vous aux rubriques suivantes dans la section Notions:
-- [Les variables d'environnement]([/notions/powershell/variables](http://localhost:3001/3t5-automatisation/notions/powershell/variables#variables-denvironnement))
-- [Les types de données]([/notions/powershell/variables](http://localhost:3001/3t5-automatisation/notions/powershell/variables#types-de-donn%C3%A9es))
+- [Les variables d'environnement](/notions/powershell/variables#variables-denvironnement)
+- [Les types de données](/notions/powershell/variables#types-de-donn%C3%A9es)
 - [Le pipeline](/notions/powershell/pipeline)
 - [Les opérateurs](/notions/powershell/operateurs)
 - [Les tableaux (arrays)](/notions/powershell/tableaux)

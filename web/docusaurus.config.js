@@ -83,12 +83,12 @@ const config = {
             position: "left",
             sidebarId: "solutions",
           },*/
-          /**{
+          {
             label: "Travaux Pratiques ✏️",
             type: "docSidebar",
             position: "left",
             sidebarId: "tp",
-          },*/
+          },
           {
             label: "Notions 📖",
             type: "docSidebar",

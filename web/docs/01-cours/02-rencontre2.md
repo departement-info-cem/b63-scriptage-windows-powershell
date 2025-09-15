@@ -1,5 +1,5 @@
 ---
-title: 2 - Pipeline, tableaux, strings
+title: 2 - Pipeline, tableaux
 slug: "2"
 draft: false
 ---
@@ -11,7 +11,7 @@ draft: false
 - Variables
 - Types de données
 - Tableaux et opérations sur les tableaux
-- Strings
+- Strings (pas eu le temps!)
 
 ## Exercices à réaliser
 

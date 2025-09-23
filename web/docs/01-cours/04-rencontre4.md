@@ -19,8 +19,7 @@ Les exercices suivants sont à réaliser:
 ## Ressources et documentation
 
 Référez-vous aux rubriques suivantes dans la section Notions:
-- [Les chaînes de caractères](/notions/powershell/strings)
-- [Les fichiers CSV](/notions/scripts/fichiers#fichiers-csv)
+- [Les scripts](/notions/scripts)
 
 
 La présentation PowerPoint est sur le Teams du cours, sous le canal Général > Fichiers > Supports de cours.

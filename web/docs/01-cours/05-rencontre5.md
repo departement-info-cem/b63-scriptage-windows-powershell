@@ -22,9 +22,9 @@ Les exercices suivants sont à réaliser:
 ## Ressources et documentation
 
 Référez-vous aux rubriques suivantes dans la section Notions:
-- [Les paramètres](/notions/parametres)
-- [Les fonctions](/notions/fonctions)
-- [Les fichiers](/notions/fichiers)
+- [Les paramètres](/notions/scripts/parametres)
+- [Les fonctions](/notions/scripts/fonctions)
+- [Les fichiers](/notions/scripts/fichiers)
 
 La présentation PowerPoint est sur le Teams du cours, sous le canal Général > Fichiers > Supports de cours.
 

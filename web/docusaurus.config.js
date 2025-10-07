@@ -126,6 +126,18 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ["csharp", "powershell"],
+        magicComments: [
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: {start: 'highlight-start', end: 'highlight-end'},
+          },
+          {
+            className: 'code-block-error-line',
+            line: 'error-next-line',
+            block: {start: 'error-start', end: 'error-end'},
+          },
+        ]
       },
       metadata: [
         {

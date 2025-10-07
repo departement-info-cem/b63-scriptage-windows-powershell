@@ -1,22 +1,27 @@
 ---
-title: 6 - Examen intra
+title: 6 - Gestion d'un domaine AD
 slug: "6"
-draft: true
+draft: false
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+## Déroulement de la rencontre
 
-:::note Résumé de la séance du jeudi 8 août 2024
+- Gestion d'un domaine AD
+  - Unités d'organisation
+  - Utilisateurs
+  - Groupes
+  
 
-<Tabs>
+## Exercices à réaliser
 
-<TabItem value="deroulement" label="👨‍🏫 Déroulement du cours">
+- [Paramètres et dictionnaires](/exercices/activedirectory)
+- [Commencer le TP2](/tp/tp2)
 
-Cette séance est dédiée à l'examen intra. (20%)
+## Ressources et documentation
 
-</TabItem>
+Référez-vous aux rubriques suivantes dans la section Notions:
+- [Active Directory](/notions/adds)
+  - [Administration de domaine](/notions/adds/administration)
+  - [Comptes et groupes](/notions/adds/administration)
+  - [SID, RID](/notions/adds/sid)
 
-</Tabs>
-
-:::

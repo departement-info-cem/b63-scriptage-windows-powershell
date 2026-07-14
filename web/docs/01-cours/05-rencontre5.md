@@ -1,30 +1,26 @@
 ---
-title: 5 - Paramètres et journalisation
+title: 5 - Scripts
 slug: "5"
 draft: false
 ---
 
 ## Déroulement de la rencontre
 
-- Paramètres
-- Hashtable et PSCustomObject
-- Splatting
-- Fonctions
-- Journalisation (*logging*)
+- **Examen 1**
+- Scripts
+- Exercices
 
 ## Exercices à réaliser
 
 Les exercices suivants sont à réaliser:
-- [Paramètres et dictionnaires](/exercices/params-dict)
-- [Fonctions et journalisation](/exercices/fonctions)
+- [Scripts](/exercices/scripts)
 
 
 ## Ressources et documentation
 
 Référez-vous aux rubriques suivantes dans la section Notions:
-- [Les paramètres](/notions/scripts/parametres)
-- [Les fonctions](/notions/scripts/fonctions)
-- [Les fichiers](/notions/scripts/fichiers)
+- [Les scripts](/notions/scripts)
+
 
 La présentation PowerPoint est sur le Teams du cours, sous le canal Général > Fichiers > Supports de cours.
 

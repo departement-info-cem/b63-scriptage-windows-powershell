@@ -1,6 +1,6 @@
 ---
-title: Fonctions et journalisation
-sidebar_label: Fonctions et journalisation
+title: 7 - Fonctions et journalisation
+sidebar_label: 7 - Fonctions et journalisation
 toc_max_heading_level: 2
 ---
 

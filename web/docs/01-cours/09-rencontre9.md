@@ -1,22 +1,21 @@
 ---
-title: 9 - Évaluation finale
+title: 9 - Registre
 slug: "9"
-draft: true
+draft: false
+hide_table_of_contents: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+## Déroulement de la rencontre
 
-:::note Résumé de la séance du lundi 19 août 2024
+- Le registre de Windows
+  
 
-<Tabs>
+## Exercices à réaliser
 
-<TabItem value="deroulement" label="👨‍🏫 Déroulement du cours">
+- [Le registre](/exercices/registre)
+- [Continuer le TP2](/tp/tp2)
 
-Cette séance est dédiée à l'évaluation finale. (30%)
+## Ressources et documentation
 
-</TabItem>
-
-</Tabs>
-
-:::
+Référez-vous aux rubriques suivantes dans la section Notions:
+- [La base de registre](/notions/windows/registre)

@@ -1,6 +1,6 @@
 ---
-title: Registre
-sidebar_label: Registre
+title: 7 - Registre
+sidebar_label: 7 - Registre
 toc_max_heading_level: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Pipeline, tableaux
-sidebar_label: Pipeline, tableaux
+title: 2 - Pipeline, tableaux
+sidebar_label: 2 - Pipeline, tableaux
 draft: false
 ---
 

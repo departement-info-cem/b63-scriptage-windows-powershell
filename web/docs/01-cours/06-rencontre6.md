@@ -1,27 +1,30 @@
 ---
-title: 6 - Gestion d'un domaine AD
+title: 6 - Paramètres et journalisation
 slug: "6"
 draft: false
 ---
 
 ## Déroulement de la rencontre
 
-- Gestion d'un domaine AD
-  - Unités d'organisation
-  - Utilisateurs
-  - Groupes
-  
+- Paramètres
+- Hashtable et PSCustomObject
+- Splatting
+- Fonctions
+- Journalisation (*logging*)
 
 ## Exercices à réaliser
 
-- [Paramètres et dictionnaires](/exercices/activedirectory)
-- [Commencer le TP2](/tp/tp2)
+Les exercices suivants sont à réaliser:
+- [Paramètres et dictionnaires](/exercices/params-dict)
+- [Fonctions et journalisation](/exercices/fonctions)
+
 
 ## Ressources et documentation
 
 Référez-vous aux rubriques suivantes dans la section Notions:
-- [Active Directory](/notions/adds)
-  - [Administration de domaine](/notions/adds/administration)
-  - [Comptes et groupes](/notions/adds/administration)
-  - [SID, RID](/notions/adds/sid)
+- [Les paramètres](/notions/scripts/parametres)
+- [Les fonctions](/notions/scripts/fonctions)
+- [Les fichiers](/notions/scripts/fichiers)
+
+La présentation PowerPoint est sur le Teams du cours, sous le canal Général > Fichiers > Supports de cours.
 

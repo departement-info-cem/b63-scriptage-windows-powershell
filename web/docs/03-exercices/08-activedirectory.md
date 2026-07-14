@@ -1,6 +1,6 @@
 ---
-title: Active Directory
-sidebar_label: Active Directory
+title: 7 - Active Directory
+sidebar_label: 7 - Active Directory
 toc_max_heading_level: 2
 ---
 

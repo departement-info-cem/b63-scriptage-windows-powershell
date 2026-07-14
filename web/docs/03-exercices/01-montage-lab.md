@@ -1,6 +1,6 @@
 ---
-title: Montage du laboratoire
-sidebar_label: Montage du laboratoire
+title: 1 - Montage du laboratoire
+sidebar_label: 1 - Montage du laboratoire
 description: Tutoriel d'installation d'un domaine AD
 ---
 

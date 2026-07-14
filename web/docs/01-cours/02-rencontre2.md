@@ -11,7 +11,6 @@ draft: false
 - Variables
 - Types de données
 - Tableaux et opérations sur les tableaux
-- Strings (pas eu le temps!)
 
 ## Exercices à réaliser
 

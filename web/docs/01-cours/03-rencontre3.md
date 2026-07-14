@@ -6,7 +6,7 @@ draft: false
 
 ## Déroulement de la rencontre
 
-- Strings (pas eu le temps!)
+- Strings
 - Fichiers texte et CSV
 - TP1
 

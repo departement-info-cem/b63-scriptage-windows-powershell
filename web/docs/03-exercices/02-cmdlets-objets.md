@@ -1,6 +1,6 @@
 ---
-title: Commandes, alias et objets
-sidebar_label: Commandes, alias et objets
+title: 1 - Commandes, alias et objets
+sidebar_label: 1 - Commandes, alias et objets
 ---
 
 Les exercices suivants visent à vous familiariser avec les commandes PowerShell, les alias et les objets retournés par les commandes.

@@ -1,6 +1,6 @@
 ---
-title: Paramètres et dictionnaires
-sidebar_label: Paramètres et dictionnaires
+title: 6 - Paramètres et dictionnaires
+sidebar_label: 6 - Paramètres et dictionnaires
 toc_max_heading_level: 3
 ---
 

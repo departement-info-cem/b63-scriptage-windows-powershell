@@ -1,21 +1,27 @@
 ---
-title: 7 - Registre
+title: 7 - Gestion d'un domaine AD
 slug: "7"
 draft: false
-hide_table_of_contents: true
 ---
 
 ## Déroulement de la rencontre
 
-- Le registre de Windows
+- Gestion d'un domaine AD
+  - Unités d'organisation
+  - Utilisateurs
+  - Groupes
   
 
 ## Exercices à réaliser
 
-- [Le registre](/exercices/registre)
-- [Continuer le TP2](/tp/tp2)
+- [Paramètres et dictionnaires](/exercices/activedirectory)
+- [Commencer le TP2](/tp/tp2)
 
 ## Ressources et documentation
 
 Référez-vous aux rubriques suivantes dans la section Notions:
-- [La base de registre](/notions/windows/registre)
+- [Active Directory](/notions/adds)
+  - [Administration de domaine](/notions/adds/administration)
+  - [Comptes et groupes](/notions/adds/administration)
+  - [SID, RID](/notions/adds/sid)
+

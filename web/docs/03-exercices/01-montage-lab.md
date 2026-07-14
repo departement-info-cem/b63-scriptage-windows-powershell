@@ -332,7 +332,8 @@ Voici un exemple de commande pour renommer la machine. Évidemment, chaque machi
 <TabItem value="PowerShell" label="PowerShell">
 
 ```powershell
-Rename-Computer -NewName "NOUVEAUNOM" -Restart
+Rename-Computer -NewName "NOUVEAUNOM"
+Restart-Computer
 ```
 </TabItem>
 <TabItem value="Cmd" label="Cmd">
@@ -443,6 +444,9 @@ $dossierOutils = "C:\Outils"
 $zipPath = Join-Path -Path $dossierOutils -ChildPath "SysinternalsSuite.zip"
 $dossierSysinternals = Join-Path -Path $dossierOutils -ChildPath "SysinternalsSuite"
 
+$ProgressPreference = 'SilentlyContinue'    # On veut faire taire la barre de progression car elle
+                                            # ralentit le traitement (c'est moins pire en pwsh 7+).
+
 New-Item -Path $dossierOutils -ItemType Directory
 Invoke-WebRequest -Uri $Uri -OutFile $zipPath
 Expand-Archive -Path $zipPath -DestinationPath $dossierSysinternals
@@ -455,12 +459,15 @@ Remove-Item $zipPath
 Pour installer Visual Studio Code, vous pouvez utiliser le gestionnaire de paquets Winget, mais cela ne permet pas de modifier le comportement de l'installation. Par ailleurs, Winget n'est pas une commande PowerShell. Voici comment l'installer grâce à PowerShell tout en l'enregistrant dans les menus contextuel et en créant un raccourci sur le bureau.
 
 ```powershell
-$dest = "$env:TEMP\vscodesetup.exe"
 $uri = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64"
+$fichier = "$env:TEMP\vscodesetup.exe"
 $arg = "/VERYSILENT /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders,desktopicon"
-Invoke-WebRequest -Uri $uri -OutFile $dest
-Start-Process -FilePath $dest -ArgumentList $arg -Wait -PassThru
-Remove-Item $dest
+
+$ProgressPreference = 'SilentlyContinue'
+
+Invoke-WebRequest -Uri $uri -OutFile $fichier
+Start-Process -FilePath $fichier -ArgumentList $arg -Wait -PassThru
+Remove-Item $fichier
 ```
 
 Et vous pouvez même installer l'extension PowerShell un coup parti.
@@ -469,7 +476,6 @@ Et vous pouvez même installer l'extension PowerShell un coup parti.
 $codecli = "C:\Program Files\Microsoft VS Code\bin\code.cmd"
 Start-Process -FilePath $codecli -ArgumentList "--install-extension ms-vscode.powershell" -Wait -NoNewWindow
 ```
-
 
 
 ## Utilisation de compte de domaine

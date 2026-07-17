@@ -21,8 +21,8 @@ Vous retrouverez les notes de cours dans la section **Cours**. Quant aux TP, vou
 | ------ | ------- | ------------------------- | ----------------- |
 | S01<br/>14&nbsp;Juillet | Introduction à PowerShell<br/>Commandes<br/>Objets | Montage du labo AD<br/>Exercices commandes/objets | Révisez les notes et complétez les exercices au besoin. |
 | S02<br/>17&nbsp;Juillet | Types de données<br/>Pipeline et tableaux<br/>Opérateurs de comparaison | Exercices pipeline/tableaux | Révisez les notes et complétez les exercices au besoin. |
-| S03<br/>4&nbsp;Août | Chaînes de caractères<br/>Fichiers texte et CSV<br/>*One-liners* | Exercices strings/CSV<br/>Période réservée pour le TP1 | Complétez le TP1 (remise au prochain cours)<br/>Révisez les notions pour le test |
-| S04<br/>7&nbsp;Août | *Pas de théorie* | Examen formatif (simulation d'examen)<br/>Travail sur le TP1 | Révisez les notions pour le test et préparez votre feuille de notes |
+| S03<br/>4&nbsp;Août | Chaînes de caractères<br/>Fichiers texte et CSV<br/>*One-liners* | Exercices strings/CSV<br/>Période réservée pour le TP1 | Révisez les notions pour le test |
+| S04<br/>7&nbsp;Août | *Pas de théorie* | Examen formatif (simulation d'examen)<br/>Travail sur le TP1 | Complétez le TP1 (remise au prochain cours)<br/>Révisez les notions pour le test et préparez votre feuille de notes |
 | S05<br/>11&nbsp;Août | Scripts<br/>Algorithmie/pseudo-code<br/>Structures de contrôle<br/>Débogueur et traces d'exécution | Test de mi-étape **(Examen Intra)** <br/>Exercices scripts/structures de contrôle | Révisez les notes et complétez les exercices au besoin. |
 | S06<br/>18&nbsp;Août | Paramètres (bloc param)<br/>Structures de données<br/>Fonctions<br/>Journalisation | Exercices paramètres de scripts<br/>Fonction de journalisation | Révisez les notes et complétez les exercices au besoin. |
 | S07<br/>25&nbsp;Août | AD<br/>Fournisseurs et registre | Exercices AD/registre<br/>Début du TP2 | Révisez les notes et complétez les exercices au besoin. |

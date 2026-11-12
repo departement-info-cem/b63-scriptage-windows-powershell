@@ -49,7 +49,10 @@ const config = {
       }),
     ],
   ],
-
+  plugins: [
+  [
+    require.resolve("./plugins/quiz"), {}],
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({

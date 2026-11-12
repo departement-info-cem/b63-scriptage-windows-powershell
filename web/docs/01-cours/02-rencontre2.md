@@ -3,7 +3,9 @@ title: 2 - Pipeline, tableaux
 slug: "2"
 draft: false
 ---
-
+<Quiz file="/quiz/pipe.md" />
+<Quiz file="/quiz/tableau.md" />
+<Quiz file="/quiz/variable-env.md" />
 ## Déroulement de la rencontre
 
 - Objets

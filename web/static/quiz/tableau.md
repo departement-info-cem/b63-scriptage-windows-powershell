@@ -222,7 +222,7 @@ La commande génère une erreur.
 
 
 
-## Question 1 – Quelle instruction permet de créer un tableau contenant les valeurs 10, 20 et 30 ?
+## Question 11 – Quelle instruction permet de créer un tableau contenant les valeurs 10, 20 et 30 ?
 
 ```
 ```
@@ -234,7 +234,7 @@ La commande génère une erreur.
 - [ ] `$nombres = (10..30)`
 
 
-## Question 2 – On exécute les instructions suivantes :
+## Question 12 – On exécute les instructions suivantes :
 
 ```
 $nombres = 10, 20, 30, 40
@@ -250,7 +250,7 @@ Quelle valeur sera affichée ?
 - [ ] 40
 
 
-## Question 3 – Dans PowerShell, quel est l'indice du premier élément d'un tableau ?
+## Question 13 – Dans PowerShell, quel est l'indice du premier élément d'un tableau ?
 
 
 - [ ] 1
@@ -259,7 +259,7 @@ Quelle valeur sera affichée ?
 - [ ] 2
 
 
-## Question 4 – On exécute les instructions suivantes :
+## Question 14 – On exécute les instructions suivantes :
 
 ```
 $notes = 12, 15, 18, 14, 16
@@ -275,7 +275,7 @@ Quelle valeur sera affichée ?
 - [ ] 75
 
 
-## Question 5 – On exécute les instructions suivantes :
+## Question 15 – On exécute les instructions suivantes :
 
 ```
 $couleurs = "Rouge", "Vert", "Bleu"
@@ -292,7 +292,7 @@ Quelle valeur sera affichée ?
 - [ ] Bleu
 
 
-## Question 6 – On exécute les instructions suivantes :
+## Question 16 – On exécute les instructions suivantes :
 
 ```
 $nombres = 10, 20, 30
@@ -308,7 +308,7 @@ Quelle valeur sera affichée ?
 - [ ] 100
 
 
-## Question 7 – On exécute le code suivant :
+## Question 17 – On exécute le code suivant :
 
 ```
 $nombres = 2, 4, 6
@@ -326,7 +326,7 @@ Quelles valeurs seront affichées, dans l'ordre ?
 - [ ] 2, 8, 12
 
 
-## Question 8 – On exécute les instructions suivantes :
+## Question 18 – On exécute les instructions suivantes :
 
 ```
 $jours = "Lundi", "Mardi", "Mercredi", "Jeudi"
@@ -342,7 +342,7 @@ Quelle valeur sera affichée ?
 - [x] Jeudi
 
 
-## Question 9 – On exécute les instructions suivantes :
+## Question 19 – On exécute les instructions suivantes :
 
 ```
 $nombres = 5, 10, 15
@@ -364,7 +364,7 @@ Quelle valeur sera affichée ?
 - [ ] 35
 
 
-## Question 10 – On exécute les instructions suivantes :
+## Question 20 – On exécute les instructions suivantes :
 
 ```
 $animaux = "Chat", "Chien", "Lapin"

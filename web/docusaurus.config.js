@@ -98,6 +98,12 @@ const config = {
             position: "left",
             sidebarId: "notions",
           },
+          {
+            label: "Quiz 📖",
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "quiz",
+          },
         ],
       },
       footer: {

@@ -75,15 +75,14 @@ Quel est le résultat de la deuxième instruction ?
 - [ ] Elle affiche uniquement le nombre de services.
 
 
-## Question 7 – On exécute la commande suivante dans une session où la variable `$services` n'existe pas encore :
-
+## Question 7 – Que contiendra la variable `$services` après l'exécution ?
 
 
 ```
 $services = Get-Service | Out-Null
 ```
 
-Que contiendra la variable `$services` après l'exécution ?
+
 
 
 - [ ] La liste complète des services Windows.
